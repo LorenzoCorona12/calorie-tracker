@@ -1,1263 +1,1247 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+:Calorie Tracker AI Premium Apple:index_4.html
+<!DOCTYPE html>
+<html lang="it">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2685.5">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
-  </style>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+<title>Nutrienti AI - Premium Tracker</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<style>
+:root{
+  --bg:#F2F2F7;
+  --glass:rgba(255,255,255,0.82);
+  --card:rgba(255,255,255,0.95);
+  --border:rgba(0,0,0,0.06);
+  --border2:rgba(0,122,255,0.15);
+  --t1:#000000;--t2:#3A3A3C;--t3:#8E8E93;--t4:#AEAEB2;
+  --blue:#007AFF;--blue2:#34C759;--indigo:#5856D6;
+  --grad:linear-gradient(135deg,#007AFF,#5856D6);
+  --grad-soft:linear-gradient(135deg,rgba(0,122,255,0.08),rgba(88,86,214,0.05));
+  --green:#34C759;--green-s:rgba(52,199,89,0.12);
+  --orange:#FF9500;--orange-s:rgba(255,149,0,0.12);
+  --amber:#FFCC00;--amber-s:rgba(255,204,0,0.12);
+  --red:#FF3B30;--red-s:rgba(255,59,48,0.12);
+  --r:24px;--rm:16px;--rs:12px;
+  --sh:0 4px 18px rgba(0,0,0,0.03),0 1px 2px rgba(0,0,0,0.02);
+  --sh2:0 12px 36px rgba(0,0,0,0.06),0 2px 8px rgba(0,0,0,0.03);
+  --sh-b:0 4px 14px rgba(0,122,255,0.22);
+  --f:-apple-system,BlinkMacSystemFont,'Inter',sans-serif;
+  --sb:env(safe-area-inset-bottom);--st:env(safe-area-inset-top);
+  --nh:76px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{height:100%;background:var(--bg)}
+body{font-family:var(--f);color:var(--t1);min-height:100vh;overflow-x:hidden;padding-top:var(--st);
+  background:
+    radial-gradient(circle at 10% 10%,rgba(88,86,214,0.06) 0%,transparent 50%),
+    radial-gradient(circle at 90% 80%,rgba(0,122,255,0.05) 0%,transparent 50%),
+    var(--bg)}
+button,input,textarea,select{font-family:var(--f);outline:none;color:var(--t1)}
+[data-lucide]{stroke-width:2.1;pointer-events:none}
+
+/* SCREENS TRANSITIONS */
+.scr{position:fixed;inset:0;display:flex;flex-direction:column;overflow:hidden;z-index:10;
+  transition:transform .45s cubic-bezier(.25,1,.5,1),opacity .35s ease;padding-top:var(--st)}
+.scr.off{transform:scale(0.96) translateY(24px);opacity:0;pointer-events:none}
+
+/* WELCOME */
+#sw{align-items:stretch}
+.wscroll{flex:1;overflow-y:auto;padding:48px 24px 24px;display:flex;flex-direction:column;align-items:center;text-align:center}
+.logo{width:82px;height:82px;border-radius:22px;background:var(--grad);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;box-shadow:var(--sh-b);position:relative;overflow:hidden}
+.logo::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.25) 0%,transparent 55%)}
+.logo svg{width:36px;height:36px;stroke:#fff;stroke-width:2.2}
+.wh1{font-size:30px;font-weight:800;letter-spacing:-1.2px;line-height:1.15;margin-bottom:12px}
+.wh1 em{font-style:normal;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.wsub{font-size:14px;color:var(--t2);line-height:1.6;margin-bottom:32px;font-weight:500}
+.ulist{width:100%;margin-bottom:18px}
+.ucard{width:100%;background:var(--card);border:1px solid var(--border);border-radius:20px;margin-bottom:12px;overflow:hidden;box-shadow:var(--sh);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
+.utop{display:flex;align-items:center;gap:13px;padding:16px;cursor:pointer;transition:background .2s;text-align:left}
+.utop:active{background:rgba(0,122,255,0.04)}
+.uav{width:44px;height:44px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800;flex-shrink:0}
+.unm{font-size:15px;font-weight:700;letter-spacing:-.2px}
+.umt{font-size:11px;color:var(--t3);margin-top:3px;font-weight:500}
+.uarr{color:var(--t3);transition:transform .3s cubic-bezier(.25,1,.5,1)}
+.uarr.open{transform:rotate(90deg)}
+.ulogin{max-height:0;overflow:hidden;transition:max-height .35s cubic-bezier(.25,1,.5,1)}
+.ulogin.open{max-height:150px}
+.ulogin-in{padding:0 16px 16px;display:flex;flex-direction:column;gap:10px;border-top:1px solid var(--border)}
+.prow{display:flex;background:rgba(255,255,255,0.8);border:1px solid var(--border);border-radius:var(--rm);overflow:hidden;transition:border-color .2s,box-shadow .2s}
+.prow:focus-within{border-color:var(--blue);box-shadow:0 0 0 4px rgba(0,122,255,0.08)}
+.prow input{flex:1;background:transparent;border:none;font-size:15px;padding:12px 14px;font-weight:500}
+.prow input::placeholder{color:var(--t4)}
+.peye{background:none;border:none;padding:0 14px;cursor:pointer;color:var(--t3);display:flex;align-items:center;transition:color .15s}
+.peye:active{color:var(--blue)}
+.btnlogin{background:var(--grad);color:#fff;border:none;border-radius:var(--rm);padding:13px;font-size:14px;font-weight:600;cursor:pointer;box-shadow:var(--sh-b);transition:opacity .18s}
+.btnlogin:active{opacity:.82}
+.lerr{font-size:11px;color:var(--red);text-align:center;display:none;padding-top:2px;font-weight:600}
+.lerr.on{display:block;animation:shake .35s ease}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.orline{display:flex;align-items:center;gap:12px;width:100%;margin-bottom:16px;color:var(--t3);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px}
+.orline::before,.orline::after{content:'';flex:1;height:1px;background:var(--border)}
+.wfoot{padding:16px 24px;padding-bottom:calc(16px + var(--sb))}
+
+/* BUTTONS */
+.btn{width:100%;padding:14px;border-radius:var(--rm);border:none;font-size:15px;font-weight:600;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:8px;letter-spacing:-.2px}
+.btn:active{transform:scale(.96)}
+.btn svg{width:18px;height:18px}
+.btn-p{background:var(--grad);color:#fff;box-shadow:var(--sh-b)}
+.btn-p:active{box-shadow:none}
+.btn-g{background:var(--card);color:var(--t1);border:1px solid var(--border);backdrop-filter:blur(8px);box-shadow:var(--sh)}
+.btn-r{background:var(--red-s);color:var(--red);border:1px solid rgba(255,59,48,0.15)}
+
+/* SETUP */
+#ss{background:transparent}
+.sscroll{flex:1;overflow-y:auto;padding:16px 22px 20px}
+.snav{display:flex;align-items:center;gap:14px;margin-bottom:26px}
+.sbk{width:40px;height:40px;border-radius:12px;background:var(--glass);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;box-shadow:var(--sh);color:var(--t2);transition:all .18s}
+.sbk:active{transform:scale(.9)}
+.sbar{display:flex;gap:5px;flex:1;height:4px}
+.sd{flex:1;border-radius:99px;background:rgba(0,122,255,0.08);transition:all .3s}
+.sd.done{background:rgba(0,122,255,0.25)}
+.sd.on{background:var(--grad);transform:scaleY(1.5)}
+.spane{display:none;animation:fadeUp .35s cubic-bezier(.25,1,.5,1)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.spane.on{display:block}
+.sico{width:56px;height:56px;border-radius:16px;background:var(--grad-soft);border:1.5px solid rgba(0,122,255,0.1);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.sico svg{width:24px;height:24px;stroke:var(--blue);stroke-width:2}
+.stit{font-size:24px;font-weight:800;letter-spacing:-.6px;margin-bottom:8px}
+.ssub{font-size:13px;color:var(--t2);line-height:1.6;margin-bottom:24px;font-weight:500}
+.field{margin-bottom:16px}
+.field label{display:block;font-size:10px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:.09em;margin-bottom:6px}
+.field input, .field select{width:100%;background:var(--glass);border:1px solid var(--border);border-radius:var(--rm);font-size:15px;padding:12px 14px;transition:all .2s;color:var(--t1);font-weight:500}
+.field input:focus, .field select:focus{border-color:var(--blue);background:#fff;box-shadow:0 0 0 4px rgba(0,122,255,0.08)}
+.field input::placeholder{color:var(--t4)}
+.field .prow{background:var(--glass)}
+.field .prow input{background:transparent;border:none;box-shadow:none}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ogrid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:22px}
+.opt{padding:12px 4px;background:var(--glass);border:1px solid var(--border);border-radius:var(--rm);font-size:11px;font-weight:600;color:var(--t2);cursor:pointer;transition:all .2s;text-align:center;box-shadow:var(--sh)}
+.opt:active{transform:scale(.93)}
+.opt.on{background:var(--grad-soft);border-color:rgba(0,122,255,0.25);color:var(--blue)}
+.optn{font-size:20px;font-weight:800;display:block;margin-bottom:3px}
+.opt.on .optn{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.scard{background:var(--glass);border:1px solid var(--border);border-radius:var(--r);padding:4px 0;margin-bottom:18px;box-shadow:var(--sh);backdrop-filter:blur(14px)}
+.srow{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid var(--border)}
+.srow:last-child{border-bottom:none}
+.slbl{font-size:13px;color:var(--t2);font-weight:500}
+.sval{font-size:14px;font-weight:700}
+.sval.hi{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sfoot{padding:14px 22px;padding-bottom:calc(14px + var(--sb))}
+
+/* MAIN APP */
+#sa{background:transparent}
+.ascroll{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding-bottom:calc(var(--nh) + var(--sb) + 24px)}
+.tab{display:none;padding:0 16px 8px;animation:fadeUp .32s cubic-bezier(.25,1,.5,1)}
+.tab.on{display:block}
+
+/* Bottom nav */
+.bnav{position:fixed;bottom:0;left:0;right:0;height:calc(var(--nh) + var(--sb));padding-bottom:var(--sb);
+  background:rgba(255,255,255,0.85);backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);
+  border-top:1px solid rgba(0,0,0,0.05);display:flex;z-index:100;
+  box-shadow:0 -4px 24px rgba(0,0,0,0.02)}
+.nb{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;cursor:pointer;background:none;border:none;color:var(--t3);transition:color .2s;padding:0}
+.nb.on{color:var(--blue)}
+.nb svg{width:22px;height:22px;transition:transform .3s cubic-bezier(.175,.885,.32,1.275)}
+.nb.on svg{transform:scale(1.12)}
+.nb span{font-size:10px;font-weight:600}
+.nb.on span{font-weight:700}
+
+/* Page headers */
+.ph{padding:20px 0 6px}
+.pht{font-size:25px;font-weight:800;letter-spacing:-.6px}
+.phs{font-size:13px;color:var(--t2);margin-top:3px;font-weight:500}
+
+/* TODAY HEADER WITH APPLE DATE NAVIGATOR */
+.thero{padding:16px 0 6px;display:flex;flex-direction:column;gap:12px}
+.theader-row{display:flex;justify-content:space-between;align-items:center;width:100%}
+.tgreet{font-size:20px;font-weight:800;letter-spacing:-.4px}
+.tdate{font-size:12px;color:var(--t3);margin-top:2px;font-weight:500;text-transform:capitalize}
+.dpill{padding:6px 14px;border-radius:99px;font-size:11px;font-weight:700;border:none;cursor:pointer;transition:all .2s;white-space:nowrap}
+.dpt{background:rgba(0,122,255,0.08);color:var(--blue);border:1px solid rgba(0,122,255,0.15)}
+.dpr{background:var(--amber-s);color:var(--amber);border:1px solid rgba(255,204,0,0.18)}
+
+/* Date navigation bar */
+.dnav-bar{display:flex;align-items:center;justify-content:space-between;background:var(--glass);border:1px solid var(--border);border-radius:16px;padding:6px 10px;box-shadow:var(--sh);backdrop-filter:blur(10px)}
+.dnav-btn{width:32px;height:32px;border-radius:10px;border:none;background:none;color:var(--t2);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s}
+.dnav-btn:active{background:rgba(0,0,0,0.05);transform:scale(0.9)}
+.dnav-btn svg{width:16px;height:16px}
+.dnav-label{font-size:13px;font-weight:700;color:var(--t1);cursor:pointer;position:relative;display:flex;align-items:center;gap:6px;padding:4px 10px;border-radius:8px;transition:background .15s}
+.dnav-label:active{background:rgba(0,0,0,0.04)}
+.dnav-picker{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
+
+/* Ring card */
+.ringcard{background:var(--card);border:1px solid var(--border);border-radius:24px;padding:18px;display:flex;align-items:center;gap:18px;box-shadow:var(--sh2);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);position:relative;overflow:hidden;margin-bottom:12px}
+.ringcard::before{content:'';position:absolute;top:-40px;right:-40px;width:140px;height:140px;border-radius:50%;background:radial-gradient(circle,rgba(0,122,255,0.04) 0%,transparent 70%);pointer-events:none}
+.rwrap{position:relative;width:120px;height:120px;flex-shrink:0}
+.rwrap svg{transform:rotate(-90deg)}
+.rbg{fill:none;stroke:rgba(0,0,0,0.04);stroke-width:10}
+.rglow{fill:none;stroke-width:13;stroke-linecap:round;filter:blur(3px);transition:stroke-dashoffset .8s cubic-bezier(.25,1,.5,1);opacity:.2}
+.rfill{fill:none;stroke-width:10;stroke-linecap:round;transition:stroke-dashoffset .8s cubic-bezier(.25,1,.5,1)}
+.rmid{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.rnum{font-size:22px;font-weight:800;letter-spacing:-1px;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+.rlbl{font-size:9px;color:var(--t3);text-transform:uppercase;letter-spacing:.08em;margin-top:3px;font-weight:700}
+.raside{flex:1;display:flex;flex-direction:column;gap:14px}
+.rs{display:flex;flex-direction:column;gap:4px}
+.rslbl{font-size:10px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:.07em}
+.rsval{font-size:17px;font-weight:800;letter-spacing:-.4px}
+.rssub{font-size:11px;color:var(--t3);font-weight:500}
+.rsbar{height:5px;background:rgba(0,0,0,0.04);border-radius:99px;overflow:hidden}
+.rsfill{height:100%;border-radius:99px;transition:width .8s cubic-bezier(.25,1,.5,1)}
+
+/* Day toggle */
+.dtog{background:rgba(255,255,255,0.6);border:1px solid var(--border);border-radius:18px;padding:4px;display:flex;gap:4px;margin-bottom:12px;backdrop-filter:blur(10px);box-shadow:var(--sh)}
+.dtb{flex:1;padding:10px;border-radius:14px;border:none;font-size:12px;font-weight:600;cursor:pointer;transition:all .25s cubic-bezier(.25,1,.5,1);color:var(--t2);background:transparent;display:flex;align-items:center;justify-content:center;gap:6px}
+.dtb svg{width:14px;height:14px;stroke-width:2.2}
+.dtb:active{transform:scale(.96)}
+.dtb.at{background:var(--grad);color:#fff;box-shadow:var(--sh-b)}
+.dtb.ar{background:var(--amber-s);color:var(--amber)}
+
+/* Status */
+.sbar2{padding:11px 14px;border-radius:var(--rm);font-size:12px;font-weight:600;display:none;align-items:center;gap:8px;margin-bottom:12px}
+.sbar2.on{display:flex;animation:fadeUp .22s ease}
+.sbar2 svg{width:15px;height:15px;flex-shrink:0;stroke-width:2.2}
+.sbar2.ok{background:var(--green-s);color:var(--green);border:1px solid rgba(52,199,89,0.14)}
+.sbar2.warn{background:var(--amber-s);color:var(--amber);border:1px solid rgba(255,204,0,0.14)}
+.sbar2.over{background:var(--red-s);color:var(--red);border:1px solid rgba(255,59,48,0.14)}
+
+/* AI box */
+.aibox{background:var(--card);border:1px solid var(--border);border-radius:22px;overflow:hidden;box-shadow:var(--sh);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);transition:border-color .2s,box-shadow .2s;margin-bottom:12px}
+.aibox:focus-within{border-color:rgba(0,122,255,0.22);box-shadow:var(--sh2)}
+.aihdr{padding:12px 14px 0;display:flex;align-items:center;gap:8px}
+.aitag{font-size:10px;font-weight:800;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-transform:uppercase;letter-spacing:.09em}
+.aispot{width:22px;height:22px;border-radius:8px;background:var(--grad);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.aispot svg{width:11px;height:11px;stroke:#fff;stroke-width:2.5}
+.aita{width:100%;background:transparent;border:none;color:var(--t1);font-size:14px;font-weight:500;padding:10px 14px 12px;resize:none;min-height:54px;max-height:110px;line-height:1.5}
+.aita::placeholder{color:var(--t4)}
+.aiload{padding:8px 14px 12px;display:none;align-items:center;gap:8px;font-size:12px;font-weight:600;color:var(--blue)}
+.aiload.on{display:flex}
+.spin{width:14px;height:14px;border:2px solid rgba(0,122,255,0.1);border-top-color:var(--blue);border-radius:50%;animation:sp .7s linear infinite;flex-shrink:0}
+@keyframes sp{to{transform:rotate(360deg)}}
+.aifoot{display:flex;border-top:1px solid var(--border)}
+.aibtn{flex:1;padding:11px;background:transparent;border:none;font-size:12px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;color:var(--t2);transition:background .15s}
+.aibtn svg{width:14px;height:14px;stroke-width:2}
+.aibtn:active{background:rgba(0,0,0,0.03)}
+.aibtn.send{color:var(--blue);border-left:1px solid var(--border);font-weight:700}
+.aibtn.rcon{color:var(--red)}
+.aibtn:disabled{opacity:.4;pointer-events:none}
+
+/* INTERACTIVE APPLE STYLE REVIEW MODAL / BOTTOM SHEET */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.25);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:none;align-items:end;justify-content:center;z-index:999;transition:opacity .35s ease}
+.modal-overlay.on{display:flex}
+.bsheet{background:var(--card);width:100%;max-width:500px;border-radius:28px 28px 0 0;box-shadow:var(--sh2);display:flex;flex-direction:column;max-height:86vh;transform:translateY(100%);transition:transform .38s cubic-bezier(.25,1,.5,1);overflow:hidden}
+.modal-overlay.on .bsheet{transform:translateY(0)}
+.bshdr{padding:16px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:between}
+.bstitle{font-size:16px;font-weight:800;letter-spacing:-.3px}
+.bsclose{border:none;background:rgba(0,0,0,0.04);width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--t2);transition:all .15s}
+.bsclose:active{transform:scale(.9)}
+.bsbody{flex:1;overflow-y:auto;padding:16px 20px;display:flex;flex-direction:column;gap:12px}
+.bshdrag{width:36px;height:5px;background:rgba(0,0,0,0.08);border-radius:99px;margin:10px auto 4px;flex-shrink:0}
+
+/* Review line item */
+.rev-item{background:rgba(255,255,255,0.6);border:1px solid var(--border);border-radius:18px;padding:12px 14px;display:flex;flex-direction:column;gap:8px;position:relative}
+.rev-top{display:flex;align-items:center;gap:10px;justify-content:space-between}
+.rev-input-name{flex:1;border:none;background:transparent;font-size:14px;font-weight:700;color:var(--t1);padding:2px 0;border-bottom:1px solid transparent;transition:border-color .15s}
+.rev-input-name:focus{border-color:var(--blue)}
+.rev-del{background:none;border:none;color:var(--t3);cursor:pointer;padding:4px;display:flex;align-items:center;transition:color .15s}
+.rev-del:hover{color:var(--red)}
+.rev-row-mid{display:flex;align-items:center;gap:12px;font-size:11px;font-weight:700;color:var(--t3)}
+.rev-row-mid strong{font-weight:800}
+.rev-bot{display:flex;align-items:center;gap:10px}
+.rev-slider{flex:1;accent-color:var(--blue);height:4px;cursor:pointer}
+.rev-qty-wrap{display:flex;align-items:center;background:rgba(0,0,0,0.04);padding:4px 8px;border-radius:10px;font-size:12px;font-weight:700;width:76px;justify-content:space-between}
+.rev-qty-val{border:none;background:transparent;text-align:right;width:100%;font-size:12px;font-weight:800;color:var(--t1)}
+
+.bsadd{border:1px dashed var(--border2);background:rgba(0,122,255,0.02);color:var(--blue);border-radius:14px;padding:10px;font-size:12px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;transition:all .15s}
+.bsadd:active{background:rgba(0,122,255,0.06);transform:scale(0.98)}
+
+.bsfoot{padding:16px 20px;border-top:1px solid var(--border);background:rgba(0,0,0,0.01);display:flex;flex-direction:column;gap:12px}
+.bstot-row{display:flex;justify-content:space-between;align-items:center;font-size:14px;font-weight:700}
+.bstot-row span:last-child{color:var(--blue);font-weight:800}
+.bsbtn-row{display:flex;gap:10px}
+
+/* Meals list */
+.sechdr{display:flex;align-items:center;justify-content:space-between;margin:10px 0 8px}
+.sect{font-size:11px;font-weight:800;color:var(--t3);text-transform:uppercase;letter-spacing:.08em}
+.mcard{background:var(--card);border:1px solid var(--border);border-radius:18px;margin-bottom:8px;overflow:hidden;box-shadow:var(--sh);backdrop-filter:blur(10px)}
+.mrow{display:flex;align-items:center;padding:12px;gap:12px}
+.mic2{width:36px;height:36px;border-radius:12px;background:var(--grad-soft);display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0}
+.minf{flex:1;min-width:0}
+.mnm{font-size:13.5px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;letter-spacing:-.1px}
+.mmt{font-size:11px;color:var(--t3);margin-top:2px;display:flex;align-items:center;gap:5px;font-weight:600}
+.mai{font-size:9px;font-weight:800;color:var(--blue);background:rgba(0,122,255,0.08);padding:1px 5px;border-radius:4px;text-transform:uppercase}
+.mkc{font-size:13.5px;font-weight:800;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.mx{width:28px;height:28px;border-radius:9px;background:var(--red-s);border:none;color:var(--red);cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .15s}
+.mx svg{width:14px;height:14px;stroke-width:2.4}
+.mx:active{transform:scale(.85)}
+.mtotcard{background:linear-gradient(135deg,rgba(0,122,255,0.04),rgba(88,86,214,0.03));border:1px solid rgba(0,122,255,0.1);border-radius:16px;padding:12px 14px;display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.mtotl{font-size:12.5px;color:var(--t2);font-weight:600}
+.mtotr{font-size:13px;font-weight:800;color:var(--blue)}
+.mempty{text-align:center;padding:36px 20px}
+.mew{width:64px;height:64px;border-radius:20px;background:var(--grad-soft);display:flex;align-items:center;justify-content:center;margin:0 auto 14px}
+.mew svg{width:26px;height:26px;stroke:var(--blue);stroke-width:1.8;opacity:.6}
+.metxt{font-size:13px;color:var(--t3);line-height:1.6;font-weight:500}
+
+/* HISTORY */
+.hcard{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:14px;margin-bottom:9px;display:flex;align-items:center;gap:12px;box-shadow:var(--sh);backdrop-filter:blur(10px);cursor:pointer;transition:all .15s}
+.hcard:active{transform:scale(0.98);background:rgba(255,255,255,0.7)}
+.hbar{width:4px;height:42px;border-radius:99px;flex-shrink:0}
+.hinf{flex:1}
+.hdate{font-size:13.5px;font-weight:700}
+.htype{font-size:11px;color:var(--t3);margin-top:2px;display:flex;align-items:center;gap:4px;font-weight:600}
+.htype svg{width:11px;height:11px;stroke-width:2.2}
+.hright{text-align:right}
+.hkc{font-size:15px;font-weight:800;letter-spacing:-.3px}
+.hpr{font-size:11px;color:var(--t3);margin-top:1px;font-weight:500}
+.badge{display:inline-flex;align-items:center;font-size:10px;font-weight:700;padding:2px 8px;border-radius:99px;margin-top:5px}
+.bok{background:var(--green-s);color:var(--green)}
+.bwarn{background:var(--amber-s);color:var(--amber)}
+.bov{background:var(--red-s);color:var(--red)}
+
+/* PROGRESS */
+.wgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+.wcard{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:14px;box-shadow:var(--sh);backdrop-filter:blur(10px)}
+.wlbl{font-size:10px;font-weight:800;color:var(--t3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;display:flex;align-items:center;gap:5px}
+.wlbl svg{width:12px;height:12px;stroke-width:2.2}
+.wval{font-size:22px;font-weight:800;letter-spacing:-.6px}
+.wval.g{background:linear-gradient(135deg,var(--green),#24d88e);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.winrow{display:flex;gap:10px;margin-bottom:16px}
+.winrow input{flex:1;background:var(--glass);border:1px solid var(--border);border-radius:var(--rm);font-size:15px;padding:12px 14px;transition:all .2s;color:var(--t1);font-weight:500}
+.winrow input:focus{border-color:var(--green);box-shadow:0 0 0 4px rgba(52,199,89,0.08)}
+.winrow input::placeholder{color:var(--t4)}
+.winrow button{background:linear-gradient(135deg,var(--green),#24d88e);color:#fff;border:none;border-radius:var(--rm);padding:12px 16px;font-size:13px;font-weight:750;cursor:pointer;flex-shrink:0;box-shadow:0 4px 14px rgba(52,199,89,0.22);transition:opacity .18s}
+.winrow button:active{opacity:.82}
+.wlog{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:12px 14px;margin-bottom:8px;display:flex;align-items:center;gap:11px;box-shadow:var(--sh);backdrop-filter:blur(10px)}
+.wldate{flex:1;font-size:13.5px;color:var(--t2);font-weight:600}
+.wlval{font-size:15px;font-weight:800;letter-spacing:-.3px}
+.wldiff{font-size:12px;font-weight:700;min-width:50px;text-align:right}
+.dn{color:var(--green)}.up{color:var(--red)}
+
+/* PROFILE */
+.phero{background:var(--card);border:1px solid var(--border);border-radius:24px;padding:20px;margin-bottom:14px;backdrop-filter:blur(16px);box-shadow:var(--sh2);position:relative;overflow:hidden}
+.phero::before{content:'';position:absolute;top:-40px;right:-40px;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(0,122,255,0.04),transparent 70%)}
+.ptop{display:flex;align-items:center;gap:16px;margin-bottom:16px}
+.pav{width:60px;height:60px;border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:800;flex-shrink:0}
+.pnm{font-size:20px;font-weight:800;letter-spacing:-.4px}
+.psub{font-size:12.5px;color:var(--t2);margin-top:3px;line-height:1.45;font-weight:500}
+.pstats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+.pst{background:rgba(0,0,0,0.03);border-radius:12px;padding:10px;text-align:center}
+.pstv{font-size:15px;font-weight:800;letter-spacing:-.3px}
+.pstl{font-size:9px;color:var(--t3);text-transform:uppercase;letter-spacing:.07em;margin-top:3px;font-weight:700}
+.setcard{background:var(--card);border:1px solid var(--border);border-radius:20px;margin-bottom:14px;overflow:hidden;box-shadow:var(--sh);backdrop-filter:blur(12px)}
+.setrow{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid var(--border)}
+.setrow:last-child{border-bottom:none}
+.setl{display:flex;align-items:center;gap:9px;font-size:13.5px;color:var(--t2);font-weight:500}
+.setl svg{width:15px;height:15px;stroke:var(--t3);stroke-width:2.2;flex-shrink:0}
+.setv{font-size:13.5px;font-weight:700}
+.setv.b{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.setv.g{color:var(--green)}.setv.a{color:var(--orange)}
+
+/* UTILS */
+.empty{text-align:center;padding:40px 20px}
+.eico{width:72px;height:72px;border-radius:22px;background:var(--grad-soft);display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+.eico svg{width:28px;height:28px;stroke:var(--blue);stroke-width:1.8;opacity:.6}
+.etxt{font-size:13px;color:var(--t3);line-height:1.6;font-weight:500}
+.toast{position:fixed;bottom:calc(var(--nh) + var(--sb) + 12px);left:16px;right:16px;background:rgba(0,0,0,0.85);color:#fff;padding:12px 18px;border-radius:var(--rm);font-size:13px;font-weight:600;z-index:9999;display:none;text-align:center;backdrop-filter:blur(20px);box-shadow:0 8px 32px rgba(0,0,0,0.15)}
+.toast.on{display:block;animation:fadeUp .2s ease}
+.gap8{display:flex;flex-direction:column;gap:8px}
+.mt12{margin-top:12px}
+</style>
 </head>
 <body>
-<p class="p1">:Calorie Tracker AI Premium Apple:index_4.html</p>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="it"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1">&lt;meta charset="UTF-8"/&gt;</p>
-<p class="p1">&lt;meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/&gt;</p>
-<p class="p1">&lt;title&gt;Nutrienti AI - Premium Tracker&lt;/title&gt;</p>
-<p class="p1">&lt;link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"&gt;</p>
-<p class="p1">&lt;script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"&gt;&lt;/script&gt;</p>
-<p class="p1">&lt;style&gt;</p>
-<p class="p1">:root{</p>
-<p class="p1"><span class="Apple-converted-space">  </span>--bg:#F2F2F7;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>--glass:rgba(255,255,255,0.82);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>--card:rgba(255,255,255,0.95);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>--border:rgba(0,0,0,0.06);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>--border2:rgba(0,122,255,0.15);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>--t1:#000000;--t2:#3A3A3C;--t3:#8E8E93;--t4:#AEAEB2;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>--blue:#007AFF;--blue2:#34C759;--indigo:#5856D6;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>--grad:linear-gradient(135deg,#007AFF,#5856D6);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>--grad-soft:linear-gradient(135deg,rgba(0,122,255,0.08),rgba(88,86,214,0.05));</p>
-<p class="p1"><span class="Apple-converted-space">  </span>--green:#34C759;--green-s:rgba(52,199,89,0.12);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>--orange:#FF9500;--orange-s:rgba(255,149,0,0.12);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>--amber:#FFCC00;--amber-s:rgba(255,204,0,0.12);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>--red:#FF3B30;--red-s:rgba(255,59,48,0.12);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>--r:24px;--rm:16px;--rs:12px;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>--sh:0 4px 18px rgba(0,0,0,0.03),0 1px 2px rgba(0,0,0,0.02);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>--sh2:0 12px 36px rgba(0,0,0,0.06),0 2px 8px rgba(0,0,0,0.03);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>--sh-b:0 4px 14px rgba(0,122,255,0.22);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>--f:-apple-system,BlinkMacSystemFont,'Inter',sans-serif;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>--sb:env(safe-area-inset-bottom);--st:env(safe-area-inset-top);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>--nh:76px;</p>
-<p class="p1">}</p>
-<p class="p1">*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}</p>
-<p class="p1">html{height:100%;background:var(--bg)}</p>
-<p class="p1">body{font-family:var(--f);color:var(--t1);min-height:100vh;overflow-x:hidden;padding-top:var(--st);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>background:</p>
-<p class="p1"><span class="Apple-converted-space">    </span>radial-gradient(circle at 10% 10%,rgba(88,86,214,0.06) 0%,transparent 50%),</p>
-<p class="p1"><span class="Apple-converted-space">    </span>radial-gradient(circle at 90% 80%,rgba(0,122,255,0.05) 0%,transparent 50%),</p>
-<p class="p1"><span class="Apple-converted-space">    </span>var(--bg)}</p>
-<p class="p1">button,input,textarea,select{font-family:var(--f);outline:none;color:var(--t1)}</p>
-<p class="p1">[data-lucide]{stroke-width:2.1;pointer-events:none}</p>
-<p class="p2"><br></p>
-<p class="p1">/* SCREENS TRANSITIONS */</p>
-<p class="p1">.scr{position:fixed;inset:0;display:flex;flex-direction:column;overflow:hidden;z-index:10;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>transition:transform .45s cubic-bezier(.25,1,.5,1),opacity .35s ease;padding-top:var(--st)}</p>
-<p class="p1">.scr.off{transform:scale(0.96) translateY(24px);opacity:0;pointer-events:none}</p>
-<p class="p2"><br></p>
-<p class="p1">/* WELCOME */</p>
-<p class="p1">#sw{align-items:stretch}</p>
-<p class="p1">.wscroll{flex:1;overflow-y:auto;padding:48px 24px 24px;display:flex;flex-direction:column;align-items:center;text-align:center}</p>
-<p class="p1">.logo{width:82px;height:82px;border-radius:22px;background:var(--grad);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;box-shadow:var(--sh-b);position:relative;overflow:hidden}</p>
-<p class="p1">.logo::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.25) 0%,transparent 55%)}</p>
-<p class="p1">.logo svg{width:36px;height:36px;stroke:#fff;stroke-width:2.2}</p>
-<p class="p1">.wh1{font-size:30px;font-weight:800;letter-spacing:-1.2px;line-height:1.15;margin-bottom:12px}</p>
-<p class="p1">.wh1 em{font-style:normal;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}</p>
-<p class="p1">.wsub{font-size:14px;color:var(--t2);line-height:1.6;margin-bottom:32px;font-weight:500}</p>
-<p class="p1">.ulist{width:100%;margin-bottom:18px}</p>
-<p class="p1">.ucard{width:100%;background:var(--card);border:1px solid var(--border);border-radius:20px;margin-bottom:12px;overflow:hidden;box-shadow:var(--sh);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}</p>
-<p class="p1">.utop{display:flex;align-items:center;gap:13px;padding:16px;cursor:pointer;transition:background .2s;text-align:left}</p>
-<p class="p1">.utop:active{background:rgba(0,122,255,0.04)}</p>
-<p class="p1">.uav{width:44px;height:44px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800;flex-shrink:0}</p>
-<p class="p1">.unm{font-size:15px;font-weight:700;letter-spacing:-.2px}</p>
-<p class="p1">.umt{font-size:11px;color:var(--t3);margin-top:3px;font-weight:500}</p>
-<p class="p1">.uarr{color:var(--t3);transition:transform .3s cubic-bezier(.25,1,.5,1)}</p>
-<p class="p1">.uarr.open{transform:rotate(90deg)}</p>
-<p class="p1">.ulogin{max-height:0;overflow:hidden;transition:max-height .35s cubic-bezier(.25,1,.5,1)}</p>
-<p class="p1">.ulogin.open{max-height:150px}</p>
-<p class="p1">.ulogin-in{padding:0 16px 16px;display:flex;flex-direction:column;gap:10px;border-top:1px solid var(--border)}</p>
-<p class="p1">.prow{display:flex;background:rgba(255,255,255,0.8);border:1px solid var(--border);border-radius:var(--rm);overflow:hidden;transition:border-color .2s,box-shadow .2s}</p>
-<p class="p1">.prow:focus-within{border-color:var(--blue);box-shadow:0 0 0 4px rgba(0,122,255,0.08)}</p>
-<p class="p1">.prow input{flex:1;background:transparent;border:none;font-size:15px;padding:12px 14px;font-weight:500}</p>
-<p class="p1">.prow input::placeholder{color:var(--t4)}</p>
-<p class="p1">.peye{background:none;border:none;padding:0 14px;cursor:pointer;color:var(--t3);display:flex;align-items:center;transition:color .15s}</p>
-<p class="p1">.peye:active{color:var(--blue)}</p>
-<p class="p1">.btnlogin{background:var(--grad);color:#fff;border:none;border-radius:var(--rm);padding:13px;font-size:14px;font-weight:600;cursor:pointer;box-shadow:var(--sh-b);transition:opacity .18s}</p>
-<p class="p1">.btnlogin:active{opacity:.82}</p>
-<p class="p1">.lerr{font-size:11px;color:var(--red);text-align:center;display:none;padding-top:2px;font-weight:600}</p>
-<p class="p1">.lerr.on{display:block;animation:shake .35s ease}</p>
-<p class="p1">@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}</p>
-<p class="p1">.orline{display:flex;align-items:center;gap:12px;width:100%;margin-bottom:16px;color:var(--t3);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px}</p>
-<p class="p1">.orline::before,.orline::after{content:'';flex:1;height:1px;background:var(--border)}</p>
-<p class="p1">.wfoot{padding:16px 24px;padding-bottom:calc(16px + var(--sb))}</p>
-<p class="p2"><br></p>
-<p class="p1">/* BUTTONS */</p>
-<p class="p1">.btn{width:100%;padding:14px;border-radius:var(--rm);border:none;font-size:15px;font-weight:600;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:8px;letter-spacing:-.2px}</p>
-<p class="p1">.btn:active{transform:scale(.96)}</p>
-<p class="p1">.btn svg{width:18px;height:18px}</p>
-<p class="p1">.btn-p{background:var(--grad);color:#fff;box-shadow:var(--sh-b)}</p>
-<p class="p1">.btn-p:active{box-shadow:none}</p>
-<p class="p1">.btn-g{background:var(--card);color:var(--t1);border:1px solid var(--border);backdrop-filter:blur(8px);box-shadow:var(--sh)}</p>
-<p class="p1">.btn-r{background:var(--red-s);color:var(--red);border:1px solid rgba(255,59,48,0.15)}</p>
-<p class="p2"><br></p>
-<p class="p1">/* SETUP */</p>
-<p class="p1">#ss{background:transparent}</p>
-<p class="p1">.sscroll{flex:1;overflow-y:auto;padding:16px 22px 20px}</p>
-<p class="p1">.snav{display:flex;align-items:center;gap:14px;margin-bottom:26px}</p>
-<p class="p1">.sbk{width:40px;height:40px;border-radius:12px;background:var(--glass);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;box-shadow:var(--sh);color:var(--t2);transition:all .18s}</p>
-<p class="p1">.sbk:active{transform:scale(.9)}</p>
-<p class="p1">.sbar{display:flex;gap:5px;flex:1;height:4px}</p>
-<p class="p1">.sd{flex:1;border-radius:99px;background:rgba(0,122,255,0.08);transition:all .3s}</p>
-<p class="p1">.sd.done{background:rgba(0,122,255,0.25)}</p>
-<p class="p1">.sd.on{background:var(--grad);transform:scaleY(1.5)}</p>
-<p class="p1">.spane{display:none;animation:fadeUp .35s cubic-bezier(.25,1,.5,1)}</p>
-<p class="p1">@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}</p>
-<p class="p1">.spane.on{display:block}</p>
-<p class="p1">.sico{width:56px;height:56px;border-radius:16px;background:var(--grad-soft);border:1.5px solid rgba(0,122,255,0.1);display:flex;align-items:center;justify-content:center;margin-bottom:18px}</p>
-<p class="p1">.sico svg{width:24px;height:24px;stroke:var(--blue);stroke-width:2}</p>
-<p class="p1">.stit{font-size:24px;font-weight:800;letter-spacing:-.6px;margin-bottom:8px}</p>
-<p class="p1">.ssub{font-size:13px;color:var(--t2);line-height:1.6;margin-bottom:24px;font-weight:500}</p>
-<p class="p1">.field{margin-bottom:16px}</p>
-<p class="p1">.field label{display:block;font-size:10px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:.09em;margin-bottom:6px}</p>
-<p class="p1">.field input, .field select{width:100%;background:var(--glass);border:1px solid var(--border);border-radius:var(--rm);font-size:15px;padding:12px 14px;transition:all .2s;color:var(--t1);font-weight:500}</p>
-<p class="p1">.field input:focus, .field select:focus{border-color:var(--blue);background:#fff;box-shadow:0 0 0 4px rgba(0,122,255,0.08)}</p>
-<p class="p1">.field input::placeholder{color:var(--t4)}</p>
-<p class="p1">.field .prow{background:var(--glass)}</p>
-<p class="p1">.field .prow input{background:transparent;border:none;box-shadow:none}</p>
-<p class="p1">.field-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}</p>
-<p class="p1">.ogrid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:22px}</p>
-<p class="p1">.opt{padding:12px 4px;background:var(--glass);border:1px solid var(--border);border-radius:var(--rm);font-size:11px;font-weight:600;color:var(--t2);cursor:pointer;transition:all .2s;text-align:center;box-shadow:var(--sh)}</p>
-<p class="p1">.opt:active{transform:scale(.93)}</p>
-<p class="p1">.opt.on{background:var(--grad-soft);border-color:rgba(0,122,255,0.25);color:var(--blue)}</p>
-<p class="p1">.optn{font-size:20px;font-weight:800;display:block;margin-bottom:3px}</p>
-<p class="p1">.opt.on .optn{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}</p>
-<p class="p1">.scard{background:var(--glass);border:1px solid var(--border);border-radius:var(--r);padding:4px 0;margin-bottom:18px;box-shadow:var(--sh);backdrop-filter:blur(14px)}</p>
-<p class="p1">.srow{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid var(--border)}</p>
-<p class="p1">.srow:last-child{border-bottom:none}</p>
-<p class="p1">.slbl{font-size:13px;color:var(--t2);font-weight:500}</p>
-<p class="p1">.sval{font-size:14px;font-weight:700}</p>
-<p class="p1">.sval.hi{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}</p>
-<p class="p1">.sfoot{padding:14px 22px;padding-bottom:calc(14px + var(--sb))}</p>
-<p class="p2"><br></p>
-<p class="p1">/* MAIN APP */</p>
-<p class="p1">#sa{background:transparent}</p>
-<p class="p1">.ascroll{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding-bottom:calc(var(--nh) + var(--sb) + 24px)}</p>
-<p class="p1">.tab{display:none;padding:0 16px 8px;animation:fadeUp .32s cubic-bezier(.25,1,.5,1)}</p>
-<p class="p1">.tab.on{display:block}</p>
-<p class="p2"><br></p>
-<p class="p1">/* Bottom nav */</p>
-<p class="p1">.bnav{position:fixed;bottom:0;left:0;right:0;height:calc(var(--nh) + var(--sb));padding-bottom:var(--sb);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>background:rgba(255,255,255,0.85);backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>border-top:1px solid rgba(0,0,0,0.05);display:flex;z-index:100;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>box-shadow:0 -4px 24px rgba(0,0,0,0.02)}</p>
-<p class="p1">.nb{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;cursor:pointer;background:none;border:none;color:var(--t3);transition:color .2s;padding:0}</p>
-<p class="p1">.nb.on{color:var(--blue)}</p>
-<p class="p1">.nb svg{width:22px;height:22px;transition:transform .3s cubic-bezier(.175,.885,.32,1.275)}</p>
-<p class="p1">.nb.on svg{transform:scale(1.12)}</p>
-<p class="p1">.nb span{font-size:10px;font-weight:600}</p>
-<p class="p1">.nb.on span{font-weight:700}</p>
-<p class="p2"><br></p>
-<p class="p1">/* Page headers */</p>
-<p class="p1">.ph{padding:20px 0 6px}</p>
-<p class="p1">.pht{font-size:25px;font-weight:800;letter-spacing:-.6px}</p>
-<p class="p1">.phs{font-size:13px;color:var(--t2);margin-top:3px;font-weight:500}</p>
-<p class="p2"><br></p>
-<p class="p1">/* TODAY HEADER WITH APPLE DATE NAVIGATOR */</p>
-<p class="p1">.thero{padding:16px 0 6px;display:flex;flex-direction:column;gap:12px}</p>
-<p class="p1">.theader-row{display:flex;justify-content:space-between;align-items:center;width:100%}</p>
-<p class="p1">.tgreet{font-size:20px;font-weight:800;letter-spacing:-.4px}</p>
-<p class="p1">.tdate{font-size:12px;color:var(--t3);margin-top:2px;font-weight:500;text-transform:capitalize}</p>
-<p class="p1">.dpill{padding:6px 14px;border-radius:99px;font-size:11px;font-weight:700;border:none;cursor:pointer;transition:all .2s;white-space:nowrap}</p>
-<p class="p1">.dpt{background:rgba(0,122,255,0.08);color:var(--blue);border:1px solid rgba(0,122,255,0.15)}</p>
-<p class="p1">.dpr{background:var(--amber-s);color:var(--amber);border:1px solid rgba(255,204,0,0.18)}</p>
-<p class="p2"><br></p>
-<p class="p1">/* Date navigation bar */</p>
-<p class="p1">.dnav-bar{display:flex;align-items:center;justify-content:space-between;background:var(--glass);border:1px solid var(--border);border-radius:16px;padding:6px 10px;box-shadow:var(--sh);backdrop-filter:blur(10px)}</p>
-<p class="p1">.dnav-btn{width:32px;height:32px;border-radius:10px;border:none;background:none;color:var(--t2);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s}</p>
-<p class="p1">.dnav-btn:active{background:rgba(0,0,0,0.05);transform:scale(0.9)}</p>
-<p class="p1">.dnav-btn svg{width:16px;height:16px}</p>
-<p class="p1">.dnav-label{font-size:13px;font-weight:700;color:var(--t1);cursor:pointer;position:relative;display:flex;align-items:center;gap:6px;padding:4px 10px;border-radius:8px;transition:background .15s}</p>
-<p class="p1">.dnav-label:active{background:rgba(0,0,0,0.04)}</p>
-<p class="p1">.dnav-picker{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}</p>
-<p class="p2"><br></p>
-<p class="p1">/* Ring card */</p>
-<p class="p1">.ringcard{background:var(--card);border:1px solid var(--border);border-radius:24px;padding:18px;display:flex;align-items:center;gap:18px;box-shadow:var(--sh2);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);position:relative;overflow:hidden;margin-bottom:12px}</p>
-<p class="p1">.ringcard::before{content:'';position:absolute;top:-40px;right:-40px;width:140px;height:140px;border-radius:50%;background:radial-gradient(circle,rgba(0,122,255,0.04) 0%,transparent 70%);pointer-events:none}</p>
-<p class="p1">.rwrap{position:relative;width:120px;height:120px;flex-shrink:0}</p>
-<p class="p1">.rwrap svg{transform:rotate(-90deg)}</p>
-<p class="p1">.rbg{fill:none;stroke:rgba(0,0,0,0.04);stroke-width:10}</p>
-<p class="p1">.rglow{fill:none;stroke-width:13;stroke-linecap:round;filter:blur(3px);transition:stroke-dashoffset .8s cubic-bezier(.25,1,.5,1);opacity:.2}</p>
-<p class="p1">.rfill{fill:none;stroke-width:10;stroke-linecap:round;transition:stroke-dashoffset .8s cubic-bezier(.25,1,.5,1)}</p>
-<p class="p1">.rmid{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}</p>
-<p class="p1">.rnum{font-size:22px;font-weight:800;letter-spacing:-1px;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}</p>
-<p class="p1">.rlbl{font-size:9px;color:var(--t3);text-transform:uppercase;letter-spacing:.08em;margin-top:3px;font-weight:700}</p>
-<p class="p1">.raside{flex:1;display:flex;flex-direction:column;gap:14px}</p>
-<p class="p1">.rs{display:flex;flex-direction:column;gap:4px}</p>
-<p class="p1">.rslbl{font-size:10px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:.07em}</p>
-<p class="p1">.rsval{font-size:17px;font-weight:800;letter-spacing:-.4px}</p>
-<p class="p1">.rssub{font-size:11px;color:var(--t3);font-weight:500}</p>
-<p class="p1">.rsbar{height:5px;background:rgba(0,0,0,0.04);border-radius:99px;overflow:hidden}</p>
-<p class="p1">.rsfill{height:100%;border-radius:99px;transition:width .8s cubic-bezier(.25,1,.5,1)}</p>
-<p class="p2"><br></p>
-<p class="p1">/* Day toggle */</p>
-<p class="p1">.dtog{background:rgba(255,255,255,0.6);border:1px solid var(--border);border-radius:18px;padding:4px;display:flex;gap:4px;margin-bottom:12px;backdrop-filter:blur(10px);box-shadow:var(--sh)}</p>
-<p class="p1">.dtb{flex:1;padding:10px;border-radius:14px;border:none;font-size:12px;font-weight:600;cursor:pointer;transition:all .25s cubic-bezier(.25,1,.5,1);color:var(--t2);background:transparent;display:flex;align-items:center;justify-content:center;gap:6px}</p>
-<p class="p1">.dtb svg{width:14px;height:14px;stroke-width:2.2}</p>
-<p class="p1">.dtb:active{transform:scale(.96)}</p>
-<p class="p1">.dtb.at{background:var(--grad);color:#fff;box-shadow:var(--sh-b)}</p>
-<p class="p1">.dtb.ar{background:var(--amber-s);color:var(--amber)}</p>
-<p class="p2"><br></p>
-<p class="p1">/* Status */</p>
-<p class="p1">.sbar2{padding:11px 14px;border-radius:var(--rm);font-size:12px;font-weight:600;display:none;align-items:center;gap:8px;margin-bottom:12px}</p>
-<p class="p1">.sbar2.on{display:flex;animation:fadeUp .22s ease}</p>
-<p class="p1">.sbar2 svg{width:15px;height:15px;flex-shrink:0;stroke-width:2.2}</p>
-<p class="p1">.sbar2.ok{background:var(--green-s);color:var(--green);border:1px solid rgba(52,199,89,0.14)}</p>
-<p class="p1">.sbar2.warn{background:var(--amber-s);color:var(--amber);border:1px solid rgba(255,204,0,0.14)}</p>
-<p class="p1">.sbar2.over{background:var(--red-s);color:var(--red);border:1px solid rgba(255,59,48,0.14)}</p>
-<p class="p2"><br></p>
-<p class="p1">/* AI box */</p>
-<p class="p1">.aibox{background:var(--card);border:1px solid var(--border);border-radius:22px;overflow:hidden;box-shadow:var(--sh);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);transition:border-color .2s,box-shadow .2s;margin-bottom:12px}</p>
-<p class="p1">.aibox:focus-within{border-color:rgba(0,122,255,0.22);box-shadow:var(--sh2)}</p>
-<p class="p1">.aihdr{padding:12px 14px 0;display:flex;align-items:center;gap:8px}</p>
-<p class="p1">.aitag{font-size:10px;font-weight:800;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-transform:uppercase;letter-spacing:.09em}</p>
-<p class="p1">.aispot{width:22px;height:22px;border-radius:8px;background:var(--grad);display:flex;align-items:center;justify-content:center;flex-shrink:0}</p>
-<p class="p1">.aispot svg{width:11px;height:11px;stroke:#fff;stroke-width:2.5}</p>
-<p class="p1">.aita{width:100%;background:transparent;border:none;color:var(--t1);font-size:14px;font-weight:500;padding:10px 14px 12px;resize:none;min-height:54px;max-height:110px;line-height:1.5}</p>
-<p class="p1">.aita::placeholder{color:var(--t4)}</p>
-<p class="p1">.aiload{padding:8px 14px 12px;display:none;align-items:center;gap:8px;font-size:12px;font-weight:600;color:var(--blue)}</p>
-<p class="p1">.aiload.on{display:flex}</p>
-<p class="p1">.spin{width:14px;height:14px;border:2px solid rgba(0,122,255,0.1);border-top-color:var(--blue);border-radius:50%;animation:sp .7s linear infinite;flex-shrink:0}</p>
-<p class="p1">@keyframes sp{to{transform:rotate(360deg)}}</p>
-<p class="p1">.aifoot{display:flex;border-top:1px solid var(--border)}</p>
-<p class="p1">.aibtn{flex:1;padding:11px;background:transparent;border:none;font-size:12px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;color:var(--t2);transition:background .15s}</p>
-<p class="p1">.aibtn svg{width:14px;height:14px;stroke-width:2}</p>
-<p class="p1">.aibtn:active{background:rgba(0,0,0,0.03)}</p>
-<p class="p1">.aibtn.send{color:var(--blue);border-left:1px solid var(--border);font-weight:700}</p>
-<p class="p1">.aibtn.rcon{color:var(--red)}</p>
-<p class="p1">.aibtn:disabled{opacity:.4;pointer-events:none}</p>
-<p class="p2"><br></p>
-<p class="p1">/* INTERACTIVE APPLE STYLE REVIEW MODAL / BOTTOM SHEET */</p>
-<p class="p1">.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.25);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:none;align-items:end;justify-content:center;z-index:999;transition:opacity .35s ease}</p>
-<p class="p1">.modal-overlay.on{display:flex}</p>
-<p class="p1">.bsheet{background:var(--card);width:100%;max-width:500px;border-radius:28px 28px 0 0;box-shadow:var(--sh2);display:flex;flex-direction:column;max-height:86vh;transform:translateY(100%);transition:transform .38s cubic-bezier(.25,1,.5,1);overflow:hidden}</p>
-<p class="p1">.modal-overlay.on .bsheet{transform:translateY(0)}</p>
-<p class="p1">.bshdr{padding:16px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:between}</p>
-<p class="p1">.bstitle{font-size:16px;font-weight:800;letter-spacing:-.3px}</p>
-<p class="p1">.bsclose{border:none;background:rgba(0,0,0,0.04);width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--t2);transition:all .15s}</p>
-<p class="p1">.bsclose:active{transform:scale(.9)}</p>
-<p class="p1">.bsbody{flex:1;overflow-y:auto;padding:16px 20px;display:flex;flex-direction:column;gap:12px}</p>
-<p class="p1">.bshdrag{width:36px;height:5px;background:rgba(0,0,0,0.08);border-radius:99px;margin:10px auto 4px;flex-shrink:0}</p>
-<p class="p2"><br></p>
-<p class="p1">/* Review line item */</p>
-<p class="p1">.rev-item{background:rgba(255,255,255,0.6);border:1px solid var(--border);border-radius:18px;padding:12px 14px;display:flex;flex-direction:column;gap:8px;position:relative}</p>
-<p class="p1">.rev-top{display:flex;align-items:center;gap:10px;justify-content:space-between}</p>
-<p class="p1">.rev-input-name{flex:1;border:none;background:transparent;font-size:14px;font-weight:700;color:var(--t1);padding:2px 0;border-bottom:1px solid transparent;transition:border-color .15s}</p>
-<p class="p1">.rev-input-name:focus{border-color:var(--blue)}</p>
-<p class="p1">.rev-del{background:none;border:none;color:var(--t3);cursor:pointer;padding:4px;display:flex;align-items:center;transition:color .15s}</p>
-<p class="p1">.rev-del:hover{color:var(--red)}</p>
-<p class="p1">.rev-row-mid{display:flex;align-items:center;gap:12px;font-size:11px;font-weight:700;color:var(--t3)}</p>
-<p class="p1">.rev-row-mid strong{font-weight:800}</p>
-<p class="p1">.rev-bot{display:flex;align-items:center;gap:10px}</p>
-<p class="p1">.rev-slider{flex:1;accent-color:var(--blue);height:4px;cursor:pointer}</p>
-<p class="p1">.rev-qty-wrap{display:flex;align-items:center;background:rgba(0,0,0,0.04);padding:4px 8px;border-radius:10px;font-size:12px;font-weight:700;width:76px;justify-content:space-between}</p>
-<p class="p1">.rev-qty-val{border:none;background:transparent;text-align:right;width:100%;font-size:12px;font-weight:800;color:var(--t1)}</p>
-<p class="p2"><br></p>
-<p class="p1">.bsadd{border:1px dashed var(--border2);background:rgba(0,122,255,0.02);color:var(--blue);border-radius:14px;padding:10px;font-size:12px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;transition:all .15s}</p>
-<p class="p1">.bsadd:active{background:rgba(0,122,255,0.06);transform:scale(0.98)}</p>
-<p class="p2"><br></p>
-<p class="p1">.bsfoot{padding:16px 20px;border-top:1px solid var(--border);background:rgba(0,0,0,0.01);display:flex;flex-direction:column;gap:12px}</p>
-<p class="p1">.bstot-row{display:flex;justify-content:space-between;align-items:center;font-size:14px;font-weight:700}</p>
-<p class="p1">.bstot-row span:last-child{color:var(--blue);font-weight:800}</p>
-<p class="p1">.bsbtn-row{display:flex;gap:10px}</p>
-<p class="p2"><br></p>
-<p class="p1">/* Meals list */</p>
-<p class="p1">.sechdr{display:flex;align-items:center;justify-content:space-between;margin:10px 0 8px}</p>
-<p class="p1">.sect{font-size:11px;font-weight:800;color:var(--t3);text-transform:uppercase;letter-spacing:.08em}</p>
-<p class="p1">.mcard{background:var(--card);border:1px solid var(--border);border-radius:18px;margin-bottom:8px;overflow:hidden;box-shadow:var(--sh);backdrop-filter:blur(10px)}</p>
-<p class="p1">.mrow{display:flex;align-items:center;padding:12px;gap:12px}</p>
-<p class="p1">.mic2{width:36px;height:36px;border-radius:12px;background:var(--grad-soft);display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0}</p>
-<p class="p1">.minf{flex:1;min-width:0}</p>
-<p class="p1">.mnm{font-size:13.5px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;letter-spacing:-.1px}</p>
-<p class="p1">.mmt{font-size:11px;color:var(--t3);margin-top:2px;display:flex;align-items:center;gap:5px;font-weight:600}</p>
-<p class="p1">.mai{font-size:9px;font-weight:800;color:var(--blue);background:rgba(0,122,255,0.08);padding:1px 5px;border-radius:4px;text-transform:uppercase}</p>
-<p class="p1">.mkc{font-size:13.5px;font-weight:800;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}</p>
-<p class="p1">.mx{width:28px;height:28px;border-radius:9px;background:var(--red-s);border:none;color:var(--red);cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .15s}</p>
-<p class="p1">.mx svg{width:14px;height:14px;stroke-width:2.4}</p>
-<p class="p1">.mx:active{transform:scale(.85)}</p>
-<p class="p1">.mtotcard{background:linear-gradient(135deg,rgba(0,122,255,0.04),rgba(88,86,214,0.03));border:1px solid rgba(0,122,255,0.1);border-radius:16px;padding:12px 14px;display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}</p>
-<p class="p1">.mtotl{font-size:12.5px;color:var(--t2);font-weight:600}</p>
-<p class="p1">.mtotr{font-size:13px;font-weight:800;color:var(--blue)}</p>
-<p class="p1">.mempty{text-align:center;padding:36px 20px}</p>
-<p class="p1">.mew{width:64px;height:64px;border-radius:20px;background:var(--grad-soft);display:flex;align-items:center;justify-content:center;margin:0 auto 14px}</p>
-<p class="p1">.mew svg{width:26px;height:26px;stroke:var(--blue);stroke-width:1.8;opacity:.6}</p>
-<p class="p1">.metxt{font-size:13px;color:var(--t3);line-height:1.6;font-weight:500}</p>
-<p class="p2"><br></p>
-<p class="p1">/* HISTORY */</p>
-<p class="p1">.hcard{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:14px;margin-bottom:9px;display:flex;align-items:center;gap:12px;box-shadow:var(--sh);backdrop-filter:blur(10px);cursor:pointer;transition:all .15s}</p>
-<p class="p1">.hcard:active{transform:scale(0.98);background:rgba(255,255,255,0.7)}</p>
-<p class="p1">.hbar{width:4px;height:42px;border-radius:99px;flex-shrink:0}</p>
-<p class="p1">.hinf{flex:1}</p>
-<p class="p1">.hdate{font-size:13.5px;font-weight:700}</p>
-<p class="p1">.htype{font-size:11px;color:var(--t3);margin-top:2px;display:flex;align-items:center;gap:4px;font-weight:600}</p>
-<p class="p1">.htype svg{width:11px;height:11px;stroke-width:2.2}</p>
-<p class="p1">.hright{text-align:right}</p>
-<p class="p1">.hkc{font-size:15px;font-weight:800;letter-spacing:-.3px}</p>
-<p class="p1">.hpr{font-size:11px;color:var(--t3);margin-top:1px;font-weight:500}</p>
-<p class="p1">.badge{display:inline-flex;align-items:center;font-size:10px;font-weight:700;padding:2px 8px;border-radius:99px;margin-top:5px}</p>
-<p class="p1">.bok{background:var(--green-s);color:var(--green)}</p>
-<p class="p1">.bwarn{background:var(--amber-s);color:var(--amber)}</p>
-<p class="p1">.bov{background:var(--red-s);color:var(--red)}</p>
-<p class="p2"><br></p>
-<p class="p1">/* PROGRESS */</p>
-<p class="p1">.wgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}</p>
-<p class="p1">.wcard{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:14px;box-shadow:var(--sh);backdrop-filter:blur(10px)}</p>
-<p class="p1">.wlbl{font-size:10px;font-weight:800;color:var(--t3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;display:flex;align-items:center;gap:5px}</p>
-<p class="p1">.wlbl svg{width:12px;height:12px;stroke-width:2.2}</p>
-<p class="p1">.wval{font-size:22px;font-weight:800;letter-spacing:-.6px}</p>
-<p class="p1">.wval.g{background:linear-gradient(135deg,var(--green),#24d88e);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}</p>
-<p class="p1">.winrow{display:flex;gap:10px;margin-bottom:16px}</p>
-<p class="p1">.winrow input{flex:1;background:var(--glass);border:1px solid var(--border);border-radius:var(--rm);font-size:15px;padding:12px 14px;transition:all .2s;color:var(--t1);font-weight:500}</p>
-<p class="p1">.winrow input:focus{border-color:var(--green);box-shadow:0 0 0 4px rgba(52,199,89,0.08)}</p>
-<p class="p1">.winrow input::placeholder{color:var(--t4)}</p>
-<p class="p1">.winrow button{background:linear-gradient(135deg,var(--green),#24d88e);color:#fff;border:none;border-radius:var(--rm);padding:12px 16px;font-size:13px;font-weight:750;cursor:pointer;flex-shrink:0;box-shadow:0 4px 14px rgba(52,199,89,0.22);transition:opacity .18s}</p>
-<p class="p1">.winrow button:active{opacity:.82}</p>
-<p class="p1">.wlog{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:12px 14px;margin-bottom:8px;display:flex;align-items:center;gap:11px;box-shadow:var(--sh);backdrop-filter:blur(10px)}</p>
-<p class="p1">.wldate{flex:1;font-size:13.5px;color:var(--t2);font-weight:600}</p>
-<p class="p1">.wlval{font-size:15px;font-weight:800;letter-spacing:-.3px}</p>
-<p class="p1">.wldiff{font-size:12px;font-weight:700;min-width:50px;text-align:right}</p>
-<p class="p1">.dn{color:var(--green)}.up{color:var(--red)}</p>
-<p class="p2"><br></p>
-<p class="p1">/* PROFILE */</p>
-<p class="p1">.phero{background:var(--card);border:1px solid var(--border);border-radius:24px;padding:20px;margin-bottom:14px;backdrop-filter:blur(16px);box-shadow:var(--sh2);position:relative;overflow:hidden}</p>
-<p class="p1">.phero::before{content:'';position:absolute;top:-40px;right:-40px;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(0,122,255,0.04),transparent 70%)}</p>
-<p class="p1">.ptop{display:flex;align-items:center;gap:16px;margin-bottom:16px}</p>
-<p class="p1">.pav{width:60px;height:60px;border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:800;flex-shrink:0}</p>
-<p class="p1">.pnm{font-size:20px;font-weight:800;letter-spacing:-.4px}</p>
-<p class="p1">.psub{font-size:12.5px;color:var(--t2);margin-top:3px;line-height:1.45;font-weight:500}</p>
-<p class="p1">.pstats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}</p>
-<p class="p1">.pst{background:rgba(0,0,0,0.03);border-radius:12px;padding:10px;text-align:center}</p>
-<p class="p1">.pstv{font-size:15px;font-weight:800;letter-spacing:-.3px}</p>
-<p class="p1">.pstl{font-size:9px;color:var(--t3);text-transform:uppercase;letter-spacing:.07em;margin-top:3px;font-weight:700}</p>
-<p class="p1">.setcard{background:var(--card);border:1px solid var(--border);border-radius:20px;margin-bottom:14px;overflow:hidden;box-shadow:var(--sh);backdrop-filter:blur(12px)}</p>
-<p class="p1">.setrow{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid var(--border)}</p>
-<p class="p1">.setrow:last-child{border-bottom:none}</p>
-<p class="p1">.setl{display:flex;align-items:center;gap:9px;font-size:13.5px;color:var(--t2);font-weight:500}</p>
-<p class="p1">.setl svg{width:15px;height:15px;stroke:var(--t3);stroke-width:2.2;flex-shrink:0}</p>
-<p class="p1">.setv{font-size:13.5px;font-weight:700}</p>
-<p class="p1">.setv.b{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}</p>
-<p class="p1">.setv.g{color:var(--green)}.setv.a{color:var(--orange)}</p>
-<p class="p2"><br></p>
-<p class="p1">/* UTILS */</p>
-<p class="p1">.empty{text-align:center;padding:40px 20px}</p>
-<p class="p1">.eico{width:72px;height:72px;border-radius:22px;background:var(--grad-soft);display:flex;align-items:center;justify-content:center;margin:0 auto 16px}</p>
-<p class="p1">.eico svg{width:28px;height:28px;stroke:var(--blue);stroke-width:1.8;opacity:.6}</p>
-<p class="p1">.etxt{font-size:13px;color:var(--t3);line-height:1.6;font-weight:500}</p>
-<p class="p1">.toast{position:fixed;bottom:calc(var(--nh) + var(--sb) + 12px);left:16px;right:16px;background:rgba(0,0,0,0.85);color:#fff;padding:12px 18px;border-radius:var(--rm);font-size:13px;font-weight:600;z-index:9999;display:none;text-align:center;backdrop-filter:blur(20px);box-shadow:0 8px 32px rgba(0,0,0,0.15)}</p>
-<p class="p1">.toast.on{display:block;animation:fadeUp .2s ease}</p>
-<p class="p1">.gap8{display:flex;flex-direction:column;gap:8px}</p>
-<p class="p1">.mt12{margin-top:12px}</p>
-<p class="p1">&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p1">&lt;div class="scr off" id="sw"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="wscroll"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="logo"&gt;&lt;i data-lucide="flame"&gt;&lt;/i&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h1 class="wh1"&gt;Il tuo tracker&lt;br&gt;&lt;em&gt;intelligente&lt;/em&gt;&lt;/h1&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;p class="wsub"&gt;Scomponi e traccia quello che mangi.&lt;br&gt;Ricalcola in tempo reale le porzioni.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="ulist" id="ulist"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="orline" id="orline" style="display:none"&gt;oppure&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="wfoot"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;button class="btn btn-p" onclick="goSetup()"&gt;&lt;i data-lucide="plus"&gt;&lt;/i&gt; Crea nuovo profilo&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p1">&lt;/div&gt;</p>
-<p class="p1">&lt;div class="scr off" id="ss"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="sscroll"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="snav"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;button class="sbk" onclick="setupBack()"&gt;&lt;i data-lucide="arrow-left"&gt;&lt;/i&gt;&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="sbar" id="sbar"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="spane on" id="sp1"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="sico"&gt;&lt;i data-lucide="user"&gt;&lt;/i&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="stit"&gt;Come ti chiami?&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="ssub"&gt;Ogni profilo è separato e protetto da password personale.&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="field"&gt;&lt;label&gt;Il tuo nome&lt;/label&gt;&lt;input id="fname" type="text" placeholder="Es. Lorenzo" autocapitalize="words"/&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="spane" id="sp2"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="sico"&gt;&lt;i data-lucide="ruler"&gt;&lt;/i&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="stit"&gt;I tuoi dati fisici&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="ssub"&gt;Per calcolare il fabbisogno calorico con la formula Mifflin-St Jeor.&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="field-row"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="field"&gt;&lt;label&gt;Età&lt;/label&gt;&lt;input id="fage" type="number" placeholder="34" min="14" max="90"/&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="field"&gt;&lt;label&gt;Sesso (M/F)&lt;/label&gt;&lt;input id="fsex" type="text" placeholder="M" maxlength="1"/&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="field-row"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="field"&gt;&lt;label&gt;Altezza (cm)&lt;/label&gt;&lt;input id="fh" type="number" placeholder="175"/&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="field"&gt;&lt;label&gt;Peso attuale (kg)&lt;/label&gt;&lt;input id="fw" type="number" placeholder="78" step="0.1"/&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="spane" id="sp3"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="sico"&gt;&lt;i data-lucide="dumbbell"&gt;&lt;/i&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="stit"&gt;Allenamenti settimanali&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="ssub"&gt;Quante volte ti alleni a settimana? Serve per calcolare il moltiplicatore TDEE.&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="ogrid" id="ogrid"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class="opt" onclick="selW(0)"&gt;&lt;span class="optn"&gt;0&lt;/span&gt;Mai&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class="opt" onclick="selW(1)"&gt;&lt;span class="optn"&gt;1&lt;/span&gt;Volta&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class="opt" onclick="selW(2)"&gt;&lt;span class="optn"&gt;2&lt;/span&gt;Volte&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class="opt" onclick="selW(3)"&gt;&lt;span class="optn"&gt;3&lt;/span&gt;Volte&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class="opt" onclick="selW(4)"&gt;&lt;span class="optn"&gt;4&lt;/span&gt;Volte&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class="opt" onclick="selW(5)"&gt;&lt;span class="optn"&gt;5&lt;/span&gt;Volte&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class="opt" onclick="selW(6)"&gt;&lt;span class="optn"&gt;6&lt;/span&gt;Volte&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class="opt" onclick="selW(7)"&gt;&lt;span class="optn"&gt;7&lt;/span&gt;Ogni g.&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="spane" id="sp4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="sico"&gt;&lt;i data-lucide="target"&gt;&lt;/i&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="stit"&gt;Obiettivo e sicurezza&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="ssub"&gt;Imposta il peso ideale e una password per proteggere il tuo profilo.&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="field-row"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="field"&gt;&lt;label&gt;Peso obiettivo (kg)&lt;/label&gt;&lt;input id="ftw" type="number" placeholder="72" step="0.1"/&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="field"&gt;&lt;label&gt;Proteine/die (g)&lt;/label&gt;&lt;input id="fpt" type="number" placeholder="Auto"/&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="field"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;label&gt;Password profilo&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="prow" id="spr"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;input id="fpwd" type="password" placeholder="Scegli una password"/&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;button class="peye" onclick="toggleEye('fpwd','seye')" id="seye" type="button"&gt;&lt;i data-lucide="eye"&gt;&lt;/i&gt;&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="spane" id="sp5"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="sico"&gt;&lt;i data-lucide="check-circle"&gt;&lt;/i&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="stit"&gt;Tutto pronto!&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="ssub"&gt;Ecco i tuoi target calcolati. Modificabili in qualsiasi momento.&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="scard" id="scard"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="sfoot"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;button class="btn btn-p" id="nbtn" onclick="setupNext()"&gt;Continua &lt;i data-lucide="arrow-right"&gt;&lt;/i&gt;&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p1">&lt;/div&gt;</p>
-<p class="p1">&lt;div class="scr off" id="sa"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="ascroll" id="ascroll"&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="tab on" id="ttoday"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="thero"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="theader-row"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div&gt;&lt;div class="tgreet" id="tgreet"&gt;Ciao!&lt;/div&gt;&lt;div class="tdate" id="tdate"&gt;&lt;/div&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;button class="dpill dpt" id="dpill" onclick="toggleDay()"&gt;Allenamento&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Apple Date Navigator Row --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="dnav-bar"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;button class="dnav-btn" onclick="changeActiveDate(-1)"&gt;&lt;i data-lucide="chevron-left"&gt;&lt;/i&gt;&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="dnav-label" id="dnav-label-text"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;span&gt;Oggi&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;i data-lucide="calendar" style="width:13px;height:13px;color:var(--blue)"&gt;&lt;/i&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;input type="date" class="dnav-picker" id="dnav-picker-input" onchange="jumpToDate(this.value)"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;button class="dnav-btn" onclick="changeActiveDate(1)"&gt;&lt;i data-lucide="chevron-right"&gt;&lt;/i&gt;&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">      </span></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="ringcard"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="rwrap"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;svg width="120" height="120" viewBox="0 0 120 120"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;circle class="rbg" cx="60" cy="60" r="50"/&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;circle class="rglow" id="rglow" cx="60" cy="60" r="50" stroke-dasharray="314.16" stroke-dashoffset="314.16" stroke="url(#g1)"/&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;circle class="rfill" id="rfill" cx="60" cy="60" r="50" stroke-dasharray="314.16" stroke-dashoffset="314.16" stroke="url(#g1)"/&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;defs&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;stop offset="0%" stop-color="#007AFF"/&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;stop offset="100%" stop-color="#5856D6"/&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;/linearGradient&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;linearGradient id="g2" x1="0" y1="0" x2="1" y2="1"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;stop offset="0%" stop-color="#FF3B30"/&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;stop offset="100%" stop-color="#FF2D55"/&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;/linearGradient&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/defs&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/svg&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="rmid"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="rnum" id="rnum"&gt;0&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="rlbl"&gt;kcal&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="raside"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="rs"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="rslbl"&gt;Rimanenti&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="rsval" style="font-size:16px" id="rrem"&gt;&amp;#8212;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="rssub" id="rtgt"&gt;su &amp;#8212; kcal&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="rs"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="rslbl"&gt;Proteine&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div style="font-size:12px;font-weight:700;color:var(--t1)" id="rptxt"&gt;0g / &amp;#8212;g&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="rsbar"&gt;&lt;div class="rsfill" id="barp" style="width:0%;background:linear-gradient(90deg,var(--green),#24d88e)"&gt;&lt;/div&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="dtog"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class="dtb at" id="bttr" onclick="setDay('allenamento')"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;i data-lucide="dumbbell"&gt;&lt;/i&gt;&lt;span id="ltr"&gt;Allenamento&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class="dtb" id="btrs" onclick="setDay('riposo')"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;i data-lucide="moon"&gt;&lt;/i&gt;&lt;span id="lrs"&gt;Riposo&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="sbar2" id="sbar2"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="aibox"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="aihdr"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="aispot"&gt;&lt;i data-lucide="sparkles"&gt;&lt;/i&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;span class="aitag"&gt;Gemini AI&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;textarea class="aita" id="aiin" placeholder="Cosa hai mangiato? Es: 120g di riso con 150g di filetto di salmone e un filo d'olio d'oliva" rows="2"&gt;&lt;/textarea&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="aiload" id="aiload"&gt;&lt;div class="spin"&gt;&lt;/div&gt;Gemini sta analizzando...&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="aifoot"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;button class="aibtn" id="bmic" onclick="toggleMic()"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;i data-lucide="mic" id="micic"&gt;&lt;/i&gt;&lt;span id="miclbl"&gt;Detta&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;button class="aibtn send" id="bgo" onclick="analyze()"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;i data-lucide="send"&gt;&lt;/i&gt;Analizza</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="sechdr"&gt;&lt;div class="sect"&gt;Pasti registrati&lt;/div&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div id="mlist"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="tab" id="tdiario"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="ph"&gt;&lt;div class="pht"&gt;Diario&lt;/div&gt;&lt;div class="phs"&gt;Il tuo storico alimentare&lt;/div&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div id="histlist"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="tab" id="tpeso"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="ph"&gt;&lt;div class="pht"&gt;Progresso&lt;/div&gt;&lt;div class="phs"&gt;Traccia il tuo peso&lt;/div&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="wgrid" id="wgrid"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="winrow"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;input type="number" id="win" placeholder="Peso oggi (kg)" step="0.1" min="30" max="300"/&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;button onclick="saveW()"&gt;+ Salva&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="sechdr"&gt;&lt;div class="sect"&gt;Log pesate&lt;/div&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div id="wloglist"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="tab" id="tprofilo"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="ph"&gt;&lt;div class="pht"&gt;Profilo&lt;/div&gt;&lt;div class="phs"&gt;Le tue impostazioni&lt;/div&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="phero"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="ptop"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="pav" id="pav"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div&gt;&lt;div class="pnm" id="pnm"&gt;&lt;/div&gt;&lt;div class="psub" id="psub"&gt;&lt;/div&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="pstats" id="pstats"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="setcard" id="setcard"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="gap8 mt12"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class="btn btn-g" onclick="switchUser()"&gt;&lt;i data-lucide="log-out"&gt;&lt;/i&gt;Cambia utente&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class="btn btn-r" onclick="delProf()"&gt;&lt;i data-lucide="trash-2"&gt;&lt;/i&gt;Elimina profilo e dati&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;nav class="bnav"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;button class="nb on" id="ntoday" onclick="showTab('today')"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;i data-lucide="clock"&gt;&lt;/i&gt;&lt;span&gt;Oggi&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;button class="nb" id="ndiario" onclick="showTab('diario')"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;i data-lucide="book-open"&gt;&lt;/i&gt;&lt;span&gt;Diario&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;button class="nb" id="npeso" onclick="showTab('peso')"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;i data-lucide="trending-down"&gt;&lt;/i&gt;&lt;span&gt;Peso&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;button class="nb" id="nprofilo" onclick="showTab('profilo')"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;i data-lucide="user-circle"&gt;&lt;/i&gt;&lt;span&gt;Profilo&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/nav&gt;</p>
-<p class="p1">&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;!-- INTERACTIVE REVISION MODAL / APPLE-STYLE BOTTOM SHEET --&gt;</p>
-<p class="p1">&lt;div class="modal-overlay" id="ai-review-modal"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="bsheet" id="ai-review-sheet"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="bshdrag"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="bshdr"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;span class="bstitle"&gt;Revisione Alimenti IA&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;button class="bsclose" onclick="closeReviewModal()"&gt;&lt;i data-lucide="x" style="width:14px;height:14px"&gt;&lt;/i&gt;&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="bsbody" id="review-modal-body"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;!-- Generated dynamically --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="px-5 py-2"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;button class="bsadd" onclick="addNewItemToReview()"&gt;&lt;i data-lucide="plus" style="width:14px;height:14px"&gt;&lt;/i&gt; Aggiungi un altro alimento&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="bsfoot"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="bstot-row"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;span&gt;Totale stimato&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;span id="review-summary-totals"&gt;0g prot &amp;middot; 0 kcal&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="bsbtn-row"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class="btn btn-g" style="flex:1" onclick="closeReviewModal()"&gt;&lt;i data-lucide="x"&gt;&lt;/i&gt; Annulla&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class="btn btn-p" style="flex:1" onclick="commitReviewToDiary()"&gt;&lt;i data-lucide="check"&gt;&lt;/i&gt; Salva nel Diario&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p1">&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;div class="toast" id="toast"&gt;&lt;/div&gt;</p>
-<p class="p1">&lt;script&gt;</p>
-<p class="p1">var GK='AIzaSyAfiXjHgd9m6w1ErGeWko6XNKhzGq2myS0';</p>
-<p class="p1">var GU='https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent?key='+GK;</p>
-<p class="p1">var PAL=[</p>
-<p class="p1"><span class="Apple-converted-space">  </span>{bg:'linear-gradient(135deg,#007AFF,#5856D6)',lc:'#EEF2FF'},</p>
-<p class="p1"><span class="Apple-converted-space">  </span>{bg:'linear-gradient(135deg,#34C759,#24d88e)',lc:'#ECFDF5'},</p>
-<p class="p1"><span class="Apple-converted-space">  </span>{bg:'linear-gradient(135deg,#FF9500,#E04818)',lc:'#FFF7ED'},</p>
-<p class="p1"><span class="Apple-converted-space">  </span>{bg:'linear-gradient(135deg,#FFCC00,#C47A00)',lc:'#FFFBEB'},</p>
-<p class="p1"><span class="Apple-converted-space">  </span>{bg:'linear-gradient(135deg,#AF52DE,#6D28D9)',lc:'#F5F3FF'},</p>
-<p class="p1"><span class="Apple-converted-space">  </span>{bg:'linear-gradient(135deg,#FF3B30,#C72020)',lc:'#FEF2F2'}</p>
-<p class="p1">];</p>
-<p class="p1">var MEAL_ICONS=['\uD83C\uDF57','\uD83E\uDD69','\uD83D\uDC1F','\uD83E\uDD57','\uD83C\uDF5D','\uD83E\uDD5B','\u2615','\uD83C\uDF73','\uD83E\uDD66','\uD83C\uDF5A','\uD83C\uDF5E','\uD83C\uDF4E'];</p>
-<p class="p2"><br></p>
-<p class="p1">var uid=null,prof=null;</p>
-<p class="p1">var activeDate = getTodayDateStr(); // Data attualmente selezionata nel navigatore (YYYY-MM-DD)</p>
-<p class="p1">var today={type:'allenamento',meals:[]};</p>
-<p class="p1">var hist=[],wts=[],pend=[];</p>
-<p class="p1">var wkts=3,step=1,STEPS=5;</p>
-<p class="p1">var recog=null,recording=false;</p>
-<p class="p2"><br></p>
-<p class="p1">function getTodayDateStr() {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>return new Date().toISOString().slice(0,10);</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">function dk(){</p>
-<p class="p1"><span class="Apple-converted-space">  </span>return activeDate; // Ritorna sempre la data attiva selezionata</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">function fmtS(iso){</p>
-<p class="p1"><span class="Apple-converted-space">  </span>return new Date(iso+'T12:00:00').toLocaleDateString('it-IT',{weekday:'short',day:'numeric',month:'short'});</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">function fmtL(iso){</p>
-<p class="p1"><span class="Apple-converted-space">  </span>return new Date(iso+'T12:00:00').toLocaleDateString('it-IT',{weekday:'long',day:'numeric',month:'long'});</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">function toast(m){</p>
-<p class="p1"><span class="Apple-converted-space">  </span>var t=document.getElementById('toast');</p>
-<p class="p1"><span class="Apple-converted-space">  </span>t.textContent=m;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>t.classList.add('on');</p>
-<p class="p1"><span class="Apple-converted-space">  </span>setTimeout(function(){t.classList.remove('on');},3200);</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">function show(id){</p>
-<p class="p1"><span class="Apple-converted-space">  </span>['sw','ss','sa'].forEach(function(s){document.getElementById(s).classList.add('off');});</p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById(id).classList.remove('off');</p>
-<p class="p1"><span class="Apple-converted-space">  </span>setTimeout(function(){lucide.createIcons();},50);</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">async function hashPwd(p){</p>
-<p class="p1"><span class="Apple-converted-space">  </span>if(!p)return '';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>var d=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(p));</p>
-<p class="p1"><span class="Apple-converted-space">  </span>return Array.from(new Uint8Array(d)).map(function(b){return b.toString(16).padStart(2,'0');}).join('');</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">function toggleEye(iid,bid){</p>
-<p class="p1"><span class="Apple-converted-space">  </span>var inp=document.getElementById(iid),btn=document.getElementById(bid);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>var show=inp.type==='password';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>inp.type=show?'text':'password';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>btn.innerHTML='&lt;i data-lucide="'+(show?'eye-off':'eye')+'"&gt;&lt;/i&gt;';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>lucide.createIcons();</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">function getUsers(){try{return JSON.parse(localStorage.getItem('ct_u')||'[]');}catch(e){return[];}}</p>
-<p class="p1">function saveUsers(u){localStorage.setItem('ct_u',JSON.stringify(u));}</p>
-<p class="p1">function loadProf(u){try{return JSON.parse(localStorage.getItem('ct_p_'+u)||'null');}catch(e){return null;}}</p>
-<p class="p1">function ukey(k){return 'ct_'+uid+'_'+k;}</p>
-<p class="p2"><br></p>
-<p class="p1">function initWelcome(){</p>
-<p class="p1"><span class="Apple-converted-space">  </span>var users=getUsers().filter(function(u){return !!loadProf(u);});</p>
-<p class="p1"><span class="Apple-converted-space">  </span>var ul=document.getElementById('ulist');</p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById('orline').style.display=users.length?'flex':'none';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>if(!users.length){ul.innerHTML='';show('sw');return;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>ul.innerHTML=users.map(function(u){</p>
-<p class="p1"><span class="Apple-converted-space">    </span>var p=loadProf(u);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>var pal=PAL[p.ci||0];</p>
-<p class="p1"><span class="Apple-converted-space">    </span>return '&lt;div class="ucard"&gt;'</p>
-<p class="p1"><span class="Apple-converted-space">      </span>+'&lt;div class="utop" onclick="toggleLogin(\''+u+'\')"&gt;'</p>
-<p class="p1"><span class="Apple-converted-space">      </span>+'&lt;div class="uav" style="background:'+pal.bg+';color:#fff"&gt;'+p.name.charAt(0).toUpperCase()+'&lt;/div&gt;'</p>
-<p class="p1"><span class="Apple-converted-space">      </span>+'&lt;div style="flex:1"&gt;&lt;div class="unm"&gt;'+p.name+'&lt;/div&gt;'</p>
-<p class="p1"><span class="Apple-converted-space">      </span>+'&lt;div class="umt"&gt;'+p.weight+'kg &amp;rarr; '+p.tw+'kg &amp;middot; TDEE '+p.tdee+' kcal&lt;/div&gt;&lt;/div&gt;'</p>
-<p class="p1"><span class="Apple-converted-space">      </span>+'&lt;div class="uarr" id="arr_'+u+'"&gt;&lt;i data-lucide="chevron-right"&gt;&lt;/i&gt;&lt;/div&gt;'</p>
-<p class="p1"><span class="Apple-converted-space">      </span>+'&lt;/div&gt;'</p>
-<p class="p1"><span class="Apple-converted-space">      </span>+'&lt;div class="ulogin" id="ulog_'+u+'"&gt;'</p>
-<p class="p1"><span class="Apple-converted-space">      </span>+'&lt;div class="ulogin-in"&gt;'</p>
-<p class="p1"><span class="Apple-converted-space">      </span>+'&lt;div class="prow" style="margin-top:4px"&gt;'</p>
-<p class="p1"><span class="Apple-converted-space">      </span>+'&lt;input type="password" id="pwd_'+u+'" placeholder="Password" onkeydown="if(event.key===\'Enter\')doLogin(\''+u+'\')"&gt;'</p>
-<p class="p1"><span class="Apple-converted-space">      </span>+'&lt;button class="peye" onclick="toggleEye(\'pwd_'+u+'\',\'eye_'+u+'\')" id="eye_'+u+'" type="button"&gt;&lt;i data-lucide="eye"&gt;&lt;/i&gt;&lt;/button&gt;'</p>
-<p class="p1"><span class="Apple-converted-space">      </span>+'&lt;/div&gt;'</p>
-<p class="p1"><span class="Apple-converted-space">      </span>+'&lt;button class="btnlogin" onclick="doLogin(\''+u+'\')"&gt;Accedi con password&lt;/button&gt;'</p>
-<p class="p1"><span class="Apple-converted-space">      </span>+'&lt;div class="lerr" id="err_'+u+'"&gt;Password errata. Riprova.&lt;/div&gt;'</p>
-<p class="p1"><span class="Apple-converted-space">      </span>+'&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}).join('');</p>
-<p class="p1"><span class="Apple-converted-space">  </span>show('sw');</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">function toggleLogin(u){</p>
-<p class="p1"><span class="Apple-converted-space">  </span>var panel=document.getElementById('ulog_'+u);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>var arr=document.getElementById('arr_'+u);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>var isOpen=panel.classList.contains('open');</p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.querySelectorAll('.ulogin').forEach(function(p){p.classList.remove('open');});</p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.querySelectorAll('.uarr').forEach(function(a){a.classList.remove('open');});</p>
-<p class="p1"><span class="Apple-converted-space">  </span>if(!isOpen){</p>
-<p class="p1"><span class="Apple-converted-space">    </span>panel.classList.add('open');arr.classList.add('open');</p>
-<p class="p1"><span class="Apple-converted-space">    </span>setTimeout(function(){var i=document.getElementById('pwd_'+u);if(i)i.focus();},350);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>lucide.createIcons();</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">async function doLogin(u){</p>
-<p class="p1"><span class="Apple-converted-space">  </span>var p=loadProf(u);if(!p)return;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>var inp=document.getElementById('pwd_'+u);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>var err=document.getElementById('err_'+u);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>if(p.pwdHash){</p>
-<p class="p1"><span class="Apple-converted-space">    </span>var h=await hashPwd(inp?inp.value:'');</p>
-<p class="p1"><span class="Apple-converted-space">    </span>if(h!==p.pwdHash){</p>
-<p class="p1"><span class="Apple-converted-space">      </span>err.classList.add('on');inp.value='';inp.focus();</p>
-<p class="p1"><span class="Apple-converted-space">      </span>setTimeout(function(){err.classList.remove('on');},2600);return;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>uid=u;prof=p;localStorage.setItem('ct_cur',u);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>activeDate = getTodayDateStr(); // Inizializza sulla data di oggi</p>
-<p class="p1"><span class="Apple-converted-space">  </span>loadUD();show('sa');renderApp();</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">function goSetup(){</p>
-<p class="p1"><span class="Apple-converted-space">  </span>step=1;wkts=3;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>['fname','fage','fsex','fh','fw','ftw','fpt','fpwd'].forEach(function(id){var e=document.getElementById(id);if(e)e.value='';});</p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.querySelectorAll('#ogrid .opt').forEach(function(b,i){b.classList.toggle('on',i===3);});</p>
-<p class="p1"><span class="Apple-converted-space">  </span>updDots();goStepEl(1);show('ss');</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">function updDots(){</p>
-<p class="p1"><span class="Apple-converted-space">  </span>var bar=document.getElementById('sbar');bar.innerHTML='';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>for(var i=1;i&lt;=STEPS;i++){</p>
-<p class="p1"><span class="Apple-converted-space">    </span>var d=document.createElement('div');</p>
-<p class="p1"><span class="Apple-converted-space">    </span>d.className='sd'+(i&lt;step?' done':i===step?' on':'');</p>
-<p class="p1"><span class="Apple-converted-space">    </span>bar.appendChild(d);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">function goStepEl(n){</p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.querySelectorAll('.spane').forEach(function(p){p.classList.remove('on');});</p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById('sp'+n).classList.add('on');</p>
-<p class="p1"><span class="Apple-converted-space">  </span>var nb=document.getElementById('nbtn');</p>
-<p class="p1"><span class="Apple-converted-space">  </span>nb.innerHTML=(n===STEPS?'Crea profilo ':'Continua ')+'&lt;i data-lucide="'+(n===STEPS?'check':'arrow-right')+'"&gt;&lt;/i&gt;';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>lucide.createIcons();</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">function goStep(n){step=n;updDots();goStepEl(n);}</p>
-<p class="p1">function setupBack(){if(step===1){initWelcome();return;}goStep(step-1);}</p>
-<p class="p2"><br></p>
-<p class="p1">function setupNext(){</p>
-<p class="p1"><span class="Apple-converted-space">  </span>if(step===1){</p>
-<p class="p1"><span class="Apple-converted-space">    </span>if(!document.getElementById('fname').value.trim()){toast('Inserisci il tuo nome');return;}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>goStep(2);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}else if(step===2){</p>
-<p class="p1"><span class="Apple-converted-space">    </span>var age=parseInt(document.getElementById('fage').value);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>var sex=document.getElementById('fsex').value.trim().toUpperCase();</p>
-<p class="p1"><span class="Apple-converted-space">    </span>var h=parseFloat(document.getElementById('fh').value);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>var w=parseFloat(document.getElementById('fw').value);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>if(!age||!sex||!h||!w){toast('Compila tutti i campi');return;}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>if(sex!=='M'&amp;&amp;sex!=='F'){toast('Sesso: M oppure F');return;}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>goStep(3);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}else if(step===3){</p>
-<p class="p1"><span class="Apple-converted-space">    </span>goStep(4);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}else if(step===4){</p>
-<p class="p1"><span class="Apple-converted-space">    </span>if(!document.getElementById('ftw').value){toast('Inserisci il peso obiettivo');return;}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>buildSummary();goStep(5);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}else{doCreate();}</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">function selW(n){</p>
-<p class="p1"><span class="Apple-converted-space">  </span>wkts=n;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.querySelectorAll('#ogrid .opt').forEach(function(b,i){b.classList.toggle('on',i===n);});</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">function calcTDEE(p){</p>
-<p class="p1"><span class="Apple-converted-space">  </span>var m=p.sex==='F';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>var bmr=m?(10*p.weight+6.25*p.height-5*p.age-161):(10*p.weight+6.25*p.height-5*p.age+5);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>var mults=[1.2,1.375,1.375,1.55,1.55,1.725,1.725,1.9];</p>
-<p class="p1"><span class="Apple-converted-space">  </span>var tdee=Math.round(bmr*mults[Math.min(p.wk,7)]);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>return{bmr:Math.round(bmr),tdee:tdee,tTrain:Math.max(Math.round(tdee-400),1200),tRest:Math.max(Math.round(tdee-800),1000),tProt:p.protT||Math.round(p.weight*1.8)};</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">function readFields(){</p>
-<p class="p1"><span class="Apple-converted-space">  </span>return{name:document.getElementById('fname').value.trim(),age:parseInt(document.getElementById('fage').value),sex:document.getElementById('fsex').value.trim().toUpperCase(),height:parseFloat(document.getElementById('fh').value),weight:parseFloat(document.getElementById('fw').value),wk:wkts,tw:parseFloat(document.getElementById('ftw').value),protT:parseInt(document.getElementById('fpt').value)||0};</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">function buildSummary(){</p>
-<p class="p1"><span class="Apple-converted-space">  </span>var p=readFields(),c=calcTDEE(p);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById('scard').innerHTML=[</p>
-<p class="p1"><span class="Apple-converted-space">    </span>['TDEE stimato',c.tdee+' kcal',''],</p>
-<p class="p1"><span class="Apple-converted-space">    </span>['Target allenamento',c.tTrain+' kcal','hi'],</p>
-<p class="p1"><span class="Apple-converted-space">    </span>['Target riposo',c.tRest+' kcal','hi'],</p>
-<p class="p1"><span class="Apple-converted-space">    </span>['Proteine / die',c.tProt+' g',''],</p>
-<p class="p1"><span class="Apple-converted-space">    </span>['BMR base',c.bmr+' kcal','']</p>
-<p class="p1"><span class="Apple-converted-space">  </span>].map(function(r){return '&lt;div class="srow"&gt;&lt;span class="slbl"&gt;'+r[0]+'&lt;/span&gt;&lt;span class="sval '+r[2]+'"&gt;'+r[1]+'&lt;/span&gt;&lt;/div&gt;';}).join('');</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">async function doCreate(){</p>
-<p class="p1"><span class="Apple-converted-space">  </span>var users=getUsers(),f=readFields(),c=calcTDEE(f);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>var ph=await hashPwd(document.getElementById('fpwd').value);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>var id='u_'+Date.now();</p>
-<p class="p1"><span class="Apple-converted-space">  </span>var p={name:f.name,age:f.age,sex:f.sex,height:f.height,weight:f.weight,wk:f.wk,tw:f.tw,protT:f.protT,bmr:c.bmr,tdee:c.tdee,tTrain:c.tTrain,tRest:c.tRest,tProt:c.tProt,pwdHash:ph,ci:users.length%PAL.length,created:dk()};</p>
-<p class="p1"><span class="Apple-converted-space">  </span>localStorage.setItem('ct_p_'+id,JSON.stringify(p));</p>
-<p class="p1"><span class="Apple-converted-space">  </span>users.push(id);saveUsers(users);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>uid=id;prof=p;localStorage.setItem('ct_cur',id);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>activeDate = getTodayDateStr();</p>
-<p class="p1"><span class="Apple-converted-space">  </span>loadUD();show('sa');renderApp();</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">// --- DATE NAVIGATION AND LOADING HANDLER ---</p>
-<p class="p1">function changeActiveDate(delta) {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>var d = new Date(activeDate + 'T12:00:00');</p>
-<p class="p1"><span class="Apple-converted-space">  </span>d.setDate(d.getDate() + delta);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>activeDate = d.toISOString().slice(0, 10);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>loadUD();</p>
-<p class="p1"><span class="Apple-converted-space">  </span>renderApp();</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">function jumpToDate(val) {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>if(!val) return;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>activeDate = val;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>loadUD();</p>
-<p class="p1"><span class="Apple-converted-space">  </span>renderApp();</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">function loadUD(){</p>
-<p class="p1"><span class="Apple-converted-space">  </span>var d=dk();</p>
-<p class="p1"><span class="Apple-converted-space">  </span>try{</p>
-<p class="p1"><span class="Apple-converted-space">    </span>// Carichiamo la data dinamicamente dallo storage relativo</p>
-<p class="p1"><span class="Apple-converted-space">    </span>var raw=JSON.parse(localStorage.getItem(ukey('day_' + d))||'null');</p>
-<p class="p1"><span class="Apple-converted-space">    </span>if(raw){</p>
-<p class="p1"><span class="Apple-converted-space">      </span>today={type:raw.type||'allenamento',meals:raw.meals||[]};</p>
-<p class="p1"><span class="Apple-converted-space">    </span>} else {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>// Se non esiste ancora record per questa specifica data passata/futura, carichiamo un set vuoto</p>
-<p class="p1"><span class="Apple-converted-space">      </span>today={type:'allenamento',meals:[]};</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}catch(e){today={type:'allenamento',meals:[]};}</p>
-<p class="p2"><span class="Apple-converted-space">  </span></p>
-<p class="p1"><span class="Apple-converted-space">  </span>try{hist=JSON.parse(localStorage.getItem(ukey('hist'))||'[]');}catch(e){hist=[];}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>try{wts=JSON.parse(localStorage.getItem(ukey('wts'))||'[]');}catch(e){wts=[];}</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">function saveToday(){</p>
-<p class="p1"><span class="Apple-converted-space">  </span>var d = dk();</p>
-<p class="p1"><span class="Apple-converted-space">  </span>localStorage.setItem(ukey('day_' + d), JSON.stringify({date:d,type:today.type,meals:today.meals}));</p>
-<p class="p2"><span class="Apple-converted-space">  </span></p>
-<p class="p1"><span class="Apple-converted-space">  </span>// Aggiorna lo storico del diario dinamicamente</p>
-<p class="p1"><span class="Apple-converted-space">  </span>var tgt=today.type==='allenamento'?prof.tTrain:prof.tRest;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>var kcalTot = today.meals.reduce(function(a,m){return a+m.kcal;},0);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>var protTot = Math.round(today.meals.reduce(function(a,m){return a+m.prot;},0));</p>
-<p class="p2"><span class="Apple-converted-space">  </span></p>
-<p class="p1"><span class="Apple-converted-space">  </span>hist = hist.filter(function(h){return h.date !== d;}); // Rimuove eventuali doppioni</p>
-<p class="p1"><span class="Apple-converted-space">  </span>if (today.meals.length &gt; 0) {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>hist.unshift({date:d, type:today.type, kcal:kcalTot, prot:protTot, target:tgt});</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>hist.sort(function(a,b){return b.date.localeCompare(a.date);});</p>
-<p class="p1"><span class="Apple-converted-space">  </span>if(hist.length&gt;90)hist.splice(90);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>localStorage.setItem(ukey('hist'),JSON.stringify(hist));</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">function showTab(id){</p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('on');});</p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.querySelectorAll('.nb').forEach(function(b){b.classList.remove('on');});</p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById('t'+id).classList.add('on');</p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById('n'+id).classList.add('on');</p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById('ascroll').scrollTop=0;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>if(id==='diario')renderHist();</p>
-<p class="p1"><span class="Apple-converted-space">  </span>if(id==='peso')renderPeso();</p>
-<p class="p1"><span class="Apple-converted-space">  </span>if(id==='profilo')renderProfilo();</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">function renderApp(){</p>
-<p class="p1"><span class="Apple-converted-space">  </span>var d=new Date(),h=d.getHours();</p>
-<p class="p1"><span class="Apple-converted-space">  </span>var g=h&lt;5?'Buonanotte':h&lt;12?'Buongiorno':h&lt;18?'Buon pomeriggio':'Buonasera';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>var em=h&lt;12?' \u2600\uFE0F':h&lt;18?' \uD83D\uDC4B':' \uD83C\uDF19';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById('tgreet').textContent=g+', '+prof.name.split(' ')[0]+em;</p>
-<p class="p2"><span class="Apple-converted-space">  </span></p>
-<p class="p1"><span class="Apple-converted-space">  </span>// Aggiorniamo le labels della data</p>
-<p class="p1"><span class="Apple-converted-space">  </span>var dToday = getTodayDateStr();</p>
-<p class="p1"><span class="Apple-converted-space">  </span>var lblText = (activeDate === dToday) ? 'Oggi' : fmtS(activeDate);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById('dnav-label-text').firstElementChild.textContent = lblText;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById('dnav-picker-input').value = activeDate;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById('tdate').textContent=fmtL(activeDate);</p>
-<p class="p2"><span class="Apple-converted-space">  </span></p>
-<p class="p1"><span class="Apple-converted-space">  </span>setDay(today.type);</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">function setDay(type){</p>
-<p class="p1"><span class="Apple-converted-space">  </span>today.type=type;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>var isTr=type==='allenamento';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById('bttr').className='dtb'+(isTr?' at':'');</p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById('btrs').className='dtb'+(isTr?'':' ar');</p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById('dpill').className='dpill '+(isTr?'dpt':'dpr');</p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById('dpill').textContent=isTr?'Allenamento':'Riposo';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById('ltr').textContent='Allena \u00B7 '+prof.tTrain.toLocaleString('it-IT');</p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById('lrs').textContent='Riposo \u00B7 '+prof.tRest.toLocaleString('it-IT');</p>
-<p class="p1"><span class="Apple-converted-space">  </span>saveToday();renderToday();</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">function toggleDay(){setDay(today.type==='allenamento'?'riposo':'allenamento');}</p>
-<p class="p2"><br></p>
-<p class="p1">function renderToday(){</p>
-<p class="p1"><span class="Apple-converted-space">  </span>var tgt=today.type==='allenamento'?prof.tTrain:prof.tRest;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>var tP=prof.tProt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>var totK=today.meals.reduce(function(a,m){return a+m.kcal;},0);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>var totP=today.meals.reduce(function(a,m){return a+m.prot;},0);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>var rem=tgt-totK;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>var kpct=Math.min(100,totK/tgt*100);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>var ppct=Math.min(100,Math.round(totP/tP*100));</p>
-<p class="p1"><span class="Apple-converted-space">  </span>var circ=314.16; // 2 * pi * r (50)</p>
-<p class="p1"><span class="Apple-converted-space">  </span>var off=(circ-(kpct/100*circ)).toFixed(2);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>var ovr=kpct&gt;=100;</p>
-<p class="p2"><span class="Apple-converted-space">  </span></p>
-<p class="p1"><span class="Apple-converted-space">  </span>['rfill','rglow'].forEach(function(id){</p>
-<p class="p1"><span class="Apple-converted-space">    </span>var el=document.getElementById(id);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>el.setAttribute('stroke-dashoffset',off);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>el.setAttribute('stroke',ovr?'url(#g2)':'url(#g1)');</p>
-<p class="p1"><span class="Apple-converted-space">  </span>});</p>
-<p class="p2"><span class="Apple-converted-space">  </span></p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById('rnum').textContent=totK.toLocaleString('it-IT');</p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById('rrem').textContent=(rem&gt;=0?rem.toLocaleString('it-IT'):'+'+Math.abs(rem).toLocaleString('it-IT'))+' kcal';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById('rtgt').textContent='su '+tgt.toLocaleString('it-IT')+' kcal';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById('rptxt').textContent=Math.round(totP)+'g / '+tP+'g';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById('barp').style.width=ppct+'%';</p>
-<p class="p2"><span class="Apple-converted-space">  </span></p>
-<p class="p1"><span class="Apple-converted-space">  </span>var sb=document.getElementById('sbar2');</p>
-<p class="p1"><span class="Apple-converted-space">  </span>if(today.meals.length){</p>
-<p class="p1"><span class="Apple-converted-space">    </span>sb.classList.add('on');</p>
-<p class="p1"><span class="Apple-converted-space">    </span>var pct=Math.round(kpct);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>if(totK&gt;tgt+100){sb.className='sbar2 on over';sb.innerHTML='&lt;i data-lucide="alert-triangle"&gt;&lt;/i&gt; Sopra il target di '+(totK-tgt)+' kcal';}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>else if(totK&gt;=tgt-150){sb.className='sbar2 on ok';sb.innerHTML='&lt;i data-lucide="check-circle"&gt;&lt;/i&gt; In target perfetto ('+pct+'%)';}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>else{sb.className='sbar2 on warn';sb.innerHTML='&lt;i data-lucide="arrow-right"&gt;&lt;/i&gt; '+pct+'% del target \u2014 mancano '+rem+' kcal';}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>lucide.createIcons();</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}else{sb.classList.remove('on');}</p>
-<p class="p2"><span class="Apple-converted-space">  </span></p>
-<p class="p1"><span class="Apple-converted-space">  </span>var ml=document.getElementById('mlist');</p>
-<p class="p1"><span class="Apple-converted-space">  </span>if(!today.meals.length){</p>
-<p class="p1"><span class="Apple-converted-space">    </span>ml.innerHTML='&lt;div class="mempty"&gt;&lt;div class="mew"&gt;&lt;i data-lucide="utensils"&gt;&lt;/i&gt;&lt;/div&gt;&lt;div class="metxt"&gt;Descrivi i tuoi pasti qui sopra.&lt;br&gt;Gemini AI calcoler\u00E0 automaticamente&lt;br&gt;le calorie e le proteine.&lt;/div&gt;&lt;/div&gt;';</p>
-<p class="p1"><span class="Apple-converted-space">    </span>lucide.createIcons();return;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}</p>
-<p class="p2"><span class="Apple-converted-space">  </span></p>
-<p class="p1"><span class="Apple-converted-space">  </span>ml.innerHTML=today.meals.map(function(m,i){</p>
-<p class="p1"><span class="Apple-converted-space">    </span>return '&lt;div class="mcard"&gt;&lt;div class="mrow"&gt;'</p>
-<p class="p1"><span class="Apple-converted-space">      </span>+'&lt;div class="mic2"&gt;'+MEAL_ICONS[i%MEAL_ICONS.length]+'&lt;/div&gt;'</p>
-<p class="p1"><span class="Apple-converted-space">      </span>+'&lt;div class="minf"&gt;&lt;div class="mnm"&gt;'+m.name+'&lt;/div&gt;'</p>
-<p class="p1"><span class="Apple-converted-space">      </span>+'&lt;div class="mmt"&gt;'+(m.prot&gt;0?m.prot+'g prot':'')+''+(m.source==='ai'?'&lt;span class="mai"&gt;AI&lt;/span&gt;':'')+'&lt;/div&gt;&lt;/div&gt;'</p>
-<p class="p1"><span class="Apple-converted-space">      </span>+'&lt;div class="mkc"&gt;'+m.kcal+'&lt;/div&gt;'</p>
-<p class="p1"><span class="Apple-converted-space">      </span>+'&lt;button class="mx" onclick="delM('+m.id+')"&gt;&lt;i data-lucide="x"&gt;&lt;/i&gt;&lt;/button&gt;'</p>
-<p class="p1"><span class="Apple-converted-space">      </span>+'&lt;/div&gt;&lt;/div&gt;';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}).join('')</p>
-<p class="p1"><span class="Apple-converted-space">  </span>+'&lt;div class="mtotcard"&gt;&lt;span class="mtotl"&gt;Totale giornata&lt;/span&gt;&lt;span class="mtotr"&gt;'+Math.round(totP)+'g prot \u00B7 '+totK.toLocaleString('it-IT')+' kcal&lt;/span&gt;&lt;/div&gt;';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>lucide.createIcons();</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">function delM(id){today.meals=today.meals.filter(function(m){return m.id!==id;});saveToday();renderToday();}</p>
-<p class="p2"><br></p>
-<p class="p1">// --- GEMINI AI ANALYSIS WITH STRUCTURED PORTION RESPONSES ---</p>
-<p class="p1">async function analyze(){</p>
-<p class="p1"><span class="Apple-converted-space">  </span>var txt=document.getElementById('aiin').value.trim();if(!txt)return;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById('bgo').disabled=true;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById('aiload').classList.add('on');</p>
-<p class="p2"><span class="Apple-converted-space">  </span></p>
-<p class="p1"><span class="Apple-converted-space">  </span>var prompt='Nutrizionista italiano. L’utente descrive cosa ha mangiato.\n'</p>
-<p class="p1"><span class="Apple-converted-space">            </span>+'Identifica ogni alimento separandoli accuratamente.\n'</p>
-<p class="p1"><span class="Apple-converted-space">            </span>+'Fornisci come risposta unicamente un array JSON valido senza markdown, formattato esattamente in questo modo:\n'</p>
-<p class="p1"><span class="Apple-converted-space">            </span>+'{"items":[{"name":"Pasta al pomodoro","kcal":350,"prot":12,"base_kcal":350,"base_prot":12,"qty":100,"unit":"g"}]}'</p>
-<p class="p1"><span class="Apple-converted-space">            </span>+'Nota: "qty" deve contenere la grammatura o quantita\' stimata dal testo. "base_kcal" e "base_prot" devono rappresentare le kcal e le proteine per la quantita\' di base (qty) estratta, cosi\' da poter ricalcolare proporzionalmente se l\'utente cambia grammatura con lo slider.';</p>
-<p class="p2"><span class="Apple-converted-space">  </span></p>
-<p class="p1"><span class="Apple-converted-space">  </span>try{</p>
-<p class="p1"><span class="Apple-converted-space">    </span>var res=await fetch(GU,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({contents:[{parts:[{text:prompt + '\nInput: ' + txt}]}],generationConfig:{temperature:0.1,maxOutputTokens:800}})});</p>
-<p class="p1"><span class="Apple-converted-space">    </span>if(!res.ok)throw new Error('Errore HTTP '+res.status);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>var data=await res.json();</p>
-<p class="p1"><span class="Apple-converted-space">    </span>var raw=(((data.candidates||[])[0]||{}).content||{});</p>
-<p class="p1"><span class="Apple-converted-space">    </span>raw=((raw.parts||[])[0]||{}).text||'';</p>
-<p class="p1"><span class="Apple-converted-space">    </span>var parsed=JSON.parse(raw.replace(/```json|```/g,'').trim());</p>
-<p class="p1"><span class="Apple-converted-space">    </span>if(!parsed.items||!parsed.items.length)throw new Error('Nessun alimento trovato');</p>
-<p class="p2"><span class="Apple-converted-space">    </span></p>
-<p class="p1"><span class="Apple-converted-space">    </span>// Popola l'array degli elementi provvisori pronti per la schermata di revisione</p>
-<p class="p1"><span class="Apple-converted-space">    </span>pend=parsed.items.map(function(it,i){</p>
-<p class="p1"><span class="Apple-converted-space">      </span>var q = parseFloat(it.qty) || 100;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>return {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>id: Date.now()+i,</p>
-<p class="p1"><span class="Apple-converted-space">        </span>name: it.name,</p>
-<p class="p1"><span class="Apple-converted-space">        </span>qty: q,</p>
-<p class="p1"><span class="Apple-converted-space">        </span>unit: it.unit || 'g',</p>
-<p class="p1"><span class="Apple-converted-space">        </span>base_kcal: parseFloat(it.base_kcal) || parseFloat(it.kcal) || 100,</p>
-<p class="p1"><span class="Apple-converted-space">        </span>base_prot: parseFloat(it.base_prot) || parseFloat(it.prot) || 0,</p>
-<p class="p1"><span class="Apple-converted-space">        </span>base_qty: q,</p>
-<p class="p1"><span class="Apple-converted-space">        </span>kcal: parseFloat(it.kcal) || 100,</p>
-<p class="p1"><span class="Apple-converted-space">        </span>prot: parseFloat(it.prot) || 0,</p>
-<p class="p1"><span class="Apple-converted-space">        </span>source: 'ai'</p>
-<p class="p1"><span class="Apple-converted-space">      </span>};</p>
-<p class="p1"><span class="Apple-converted-space">    </span>});</p>
-<p class="p2"><span class="Apple-converted-space">    </span></p>
-<p class="p1"><span class="Apple-converted-space">    </span>openReviewModal();</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}catch(e){toast('Errore: '+e.message);console.error(e);}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>finally{document.getElementById('bgo').disabled=false;document.getElementById('aiload').classList.remove('on');}</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">// --- APPLE-STYLE INTERACTIVE EDIT/REVIEW SCREEN ACTIONS ---</p>
-<p class="p1">function openReviewModal() {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>var overlay = document.getElementById('ai-review-modal');</p>
-<p class="p1"><span class="Apple-converted-space">  </span>overlay.classList.add('on');</p>
-<p class="p1"><span class="Apple-converted-space">  </span>renderReviewList();</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">function closeReviewModal() {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>var overlay = document.getElementById('ai-review-modal');</p>
-<p class="p1"><span class="Apple-converted-space">  </span>overlay.classList.remove('on');</p>
-<p class="p1"><span class="Apple-converted-space">  </span>pend = [];</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">function renderReviewList() {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>var container = document.getElementById('review-modal-body');</p>
-<p class="p1"><span class="Apple-converted-space">  </span>if (pend.length === 0) {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>container.innerHTML = '&lt;div style="text-align:center;padding:24px;font-size:13px;color:var(--t3);font-weight:600"&gt;Nessun alimento nella lista di revisione.&lt;/div&gt;';</p>
-<p class="p1"><span class="Apple-converted-space">    </span>updateReviewTotals();</p>
-<p class="p1"><span class="Apple-converted-space">    </span>return;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}</p>
-<p class="p2"><span class="Apple-converted-space">  </span></p>
-<p class="p1"><span class="Apple-converted-space">  </span>container.innerHTML = pend.map(function(it, i) {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>return '&lt;div class="rev-item"&gt;'</p>
-<p class="p1"><span class="Apple-converted-space">      </span>+'&lt;div class="rev-top"&gt;'</p>
-<p class="p1"><span class="Apple-converted-space">      </span>+'&lt;input class="rev-input-name" type="text" value="'+it.name+'" onchange="updateReviewItemName('+i+', this.value)"&gt;'</p>
-<p class="p1"><span class="Apple-converted-space">      </span>+'&lt;button class="rev-del" onclick="deleteReviewItem('+i+')"&gt;&lt;i data-lucide="trash-2" style="width:14px;height:14px"&gt;&lt;/i&gt;&lt;/button&gt;'</p>
-<p class="p1"><span class="Apple-converted-space">      </span>+'&lt;/div&gt;'</p>
-<p class="p1"><span class="Apple-converted-space">      </span>+'&lt;div class="rev-row-mid"&gt;'</p>
-<p class="p1"><span class="Apple-converted-space">      </span>+'&lt;span&gt;Calorie: &lt;strong style="color:var(--blue)"&gt;'+Math.round(it.kcal)+' kcal&lt;/strong&gt;&lt;/span&gt; &amp;middot; '</p>
-<p class="p1"><span class="Apple-converted-space">      </span>+'&lt;span&gt;Proteine: &lt;strong style="color:var(--blue2)"&gt;'+Math.round(it.prot)+'g&lt;/strong&gt;&lt;/span&gt;'</p>
-<p class="p1"><span class="Apple-converted-space">      </span>+'&lt;/div&gt;'</p>
-<p class="p1"><span class="Apple-converted-space">      </span>+'&lt;div class="rev-bot"&gt;'</p>
-<p class="p1"><span class="Apple-converted-space">      </span>+'&lt;input class="rev-slider" type="range" min="5" max="500" step="5" value="'+it.qty+'" oninput="updateReviewItemQty('+i+', this.value)"&gt;'</p>
-<p class="p1"><span class="Apple-converted-space">      </span>+'&lt;div class="rev-qty-wrap"&gt;'</p>
-<p class="p1"><span class="Apple-converted-space">      </span>+'&lt;input class="rev-qty-val" type="number" min="1" max="999" value="'+it.qty+'" oninput="updateReviewItemQty('+i+', this.value)"&gt;'</p>
-<p class="p1"><span class="Apple-converted-space">      </span>+'&lt;span style="color:var(--t3);margin-left:4px"&gt;'+it.unit+'&lt;/span&gt;'</p>
-<p class="p1"><span class="Apple-converted-space">      </span>+'&lt;/div&gt;'</p>
-<p class="p1"><span class="Apple-converted-space">      </span>+'&lt;/div&gt;'</p>
-<p class="p1"><span class="Apple-converted-space">      </span>+'&lt;/div&gt;';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}).join('');</p>
-<p class="p2"><span class="Apple-converted-space">  </span></p>
-<p class="p1"><span class="Apple-converted-space">  </span>lucide.createIcons();</p>
-<p class="p1"><span class="Apple-converted-space">  </span>updateReviewTotals();</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">function updateReviewItemName(idx, val) {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>if(!pend[idx]) return;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>pend[idx].name = val.trim() || 'Alimento';</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">function updateReviewItemQty(idx, val) {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>if(!pend[idx]) return;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>var q = Math.max(1, parseFloat(val) || 0);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>pend[idx].qty = q;</p>
-<p class="p2"><span class="Apple-converted-space">  </span></p>
-<p class="p1"><span class="Apple-converted-space">  </span>// Ricalcolo proporzionale dei macro rispetto alla porzione estratta dall'IA</p>
-<p class="p1"><span class="Apple-converted-space">  </span>var ratio = q / pend[idx].base_qty;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>pend[idx].kcal = Math.round(pend[idx].base_kcal * ratio);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>pend[idx].prot = Math.round(pend[idx].base_prot * ratio * 10) / 10;</p>
-<p class="p2"><span class="Apple-converted-space">  </span></p>
-<p class="p1"><span class="Apple-converted-space">  </span>// Ottimizzazione di aggiornamento parziale per evitare sfarfallio</p>
-<p class="p1"><span class="Apple-converted-space">  </span>var items = document.querySelectorAll('.rev-item');</p>
-<p class="p1"><span class="Apple-converted-space">  </span>if (items[idx]) {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>var midRow = items[idx].querySelector('.rev-row-mid');</p>
-<p class="p1"><span class="Apple-converted-space">    </span>midRow.innerHTML = '&lt;span&gt;Calorie: &lt;strong style="color:var(--blue)"&gt;'+Math.round(pend[idx].kcal)+' kcal&lt;/strong&gt;&lt;/span&gt; &amp;middot; '</p>
-<p class="p1"><span class="Apple-converted-space">                     </span>+ '&lt;span&gt;Proteine: &lt;strong style="color:var(--blue2)"&gt;'+Math.round(pend[idx].prot)+'g&lt;/strong&gt;&lt;/span&gt;';</p>
-<p class="p2"><span class="Apple-converted-space">    </span></p>
-<p class="p1"><span class="Apple-converted-space">    </span>var numInp = items[idx].querySelector('.rev-qty-val');</p>
-<p class="p1"><span class="Apple-converted-space">    </span>if (numInp &amp;&amp; numInp.value != q) numInp.value = q;</p>
-<p class="p2"><span class="Apple-converted-space">    </span></p>
-<p class="p1"><span class="Apple-converted-space">    </span>var rangeInp = items[idx].querySelector('.rev-slider');</p>
-<p class="p1"><span class="Apple-converted-space">    </span>if (rangeInp &amp;&amp; rangeInp.value != q) rangeInp.value = q;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}</p>
-<p class="p2"><span class="Apple-converted-space">  </span></p>
-<p class="p1"><span class="Apple-converted-space">  </span>updateReviewTotals();</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">function deleteReviewItem(idx) {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>pend.splice(idx, 1);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>renderReviewList();</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">function addNewItemToReview() {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>pend.push({</p>
-<p class="p1"><span class="Apple-converted-space">    </span>id: Date.now() + pend.length,</p>
-<p class="p1"><span class="Apple-converted-space">    </span>name: "Nuovo alimento",</p>
-<p class="p1"><span class="Apple-converted-space">    </span>qty: 100,</p>
-<p class="p1"><span class="Apple-converted-space">    </span>unit: 'g',</p>
-<p class="p1"><span class="Apple-converted-space">    </span>base_kcal: 100,</p>
-<p class="p1"><span class="Apple-converted-space">    </span>base_prot: 2,</p>
-<p class="p1"><span class="Apple-converted-space">    </span>base_qty: 100,</p>
-<p class="p1"><span class="Apple-converted-space">    </span>kcal: 100,</p>
-<p class="p1"><span class="Apple-converted-space">    </span>prot: 2,</p>
-<p class="p1"><span class="Apple-converted-space">    </span>source: 'ai'</p>
-<p class="p1"><span class="Apple-converted-space">  </span>});</p>
-<p class="p1"><span class="Apple-converted-space">  </span>renderReviewList();</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">function updateReviewTotals() {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>var totK = pend.reduce(function(a,i){return a+i.kcal;},0);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>var totP = pend.reduce(function(a,i){return a+i.prot;},0);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById('review-summary-totals').innerHTML = Math.round(totP) + 'g prot &amp;middot; ' + totK + ' kcal';</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">function commitReviewToDiary() {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>if (pend.length === 0) {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>toast("Nessun alimento presente da salvare!");</p>
-<p class="p1"><span class="Apple-converted-space">    </span>return;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}</p>
-<p class="p2"><span class="Apple-converted-space">  </span></p>
-<p class="p1"><span class="Apple-converted-space">  </span>pend.forEach(function(p) {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>today.meals.push({</p>
-<p class="p1"><span class="Apple-converted-space">      </span>id: p.id,</p>
-<p class="p1"><span class="Apple-converted-space">      </span>name: p.name + ' (' + Math.round(p.qty) + p.unit + ')',</p>
-<p class="p1"><span class="Apple-converted-space">      </span>kcal: Math.round(p.kcal),</p>
-<p class="p1"><span class="Apple-converted-space">      </span>prot: parseFloat(p.prot) || 0,</p>
-<p class="p1"><span class="Apple-converted-space">      </span>source: 'ai'</p>
-<p class="p1"><span class="Apple-converted-space">    </span>});</p>
-<p class="p1"><span class="Apple-converted-space">  </span>});</p>
-<p class="p2"><span class="Apple-converted-space">  </span></p>
-<p class="p1"><span class="Apple-converted-space">  </span>pend = [];</p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById('ai-review-modal').classList.remove('on');</p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById('aiin').value = '';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>saveToday();</p>
-<p class="p1"><span class="Apple-converted-space">  </span>renderToday();</p>
-<p class="p1"><span class="Apple-converted-space">  </span>showTab('today');</p>
-<p class="p1"><span class="Apple-converted-space">  </span>toast("Alimenti confermati e salvati con successo! \u2713");</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">function toggleMic(){</p>
-<p class="p1"><span class="Apple-converted-space">  </span>var SR=window.SpeechRecognition||window.webkitSpeechRecognition;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>if(!SR){toast('Riconoscimento vocale non supportato');return;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>if(recording){recog&amp;&amp;recog.stop();return;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>recog=new SR();recog.lang='it-IT';recog.continuous=false;recog.interimResults=true;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>recog.onstart=function(){recording=true;document.getElementById('bmic').classList.add('rcon');document.getElementById('miclbl').textContent='Stop';};</p>
-<p class="p1"><span class="Apple-converted-space">  </span>recog.onresult=function(e){document.getElementById('aiin').value=Array.from(e.results).map(function(r){return r[0].transcript;}).join('');};</p>
-<p class="p1"><span class="Apple-converted-space">  </span>recog.onend=function(){recording=false;document.getElementById('bmic').classList.remove('rcon');document.getElementById('miclbl').textContent='Detta';var v=document.getElementById('aiin').value.trim();if(v)analyze();};</p>
-<p class="p1"><span class="Apple-converted-space">  </span>recog.onerror=function(){recording=false;toast('Errore microfono');};</p>
-<p class="p1"><span class="Apple-converted-space">  </span>recog.start();</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">function renderHist(){</p>
-<p class="p1"><span class="Apple-converted-space">  </span>var c=document.getElementById('histlist');</p>
-<p class="p1"><span class="Apple-converted-space">  </span>if(!hist.length){c.innerHTML='&lt;div class="empty"&gt;&lt;div class="eico"&gt;&lt;i data-lucide="calendar-x"&gt;&lt;/i&gt;&lt;/div&gt;&lt;div class="etxt"&gt;Nessuno storico ancora.&lt;br&gt;Si accumula automaticamente ogni giorno.&lt;/div&gt;&lt;/div&gt;';lucide.createIcons();return;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>c.innerHTML=hist.map(function(h){</p>
-<p class="p1"><span class="Apple-converted-space">    </span>var diff=h.kcal-h.target;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>var cls=diff&gt;100?'bov':diff&gt;=-150?'bok':'bwarn';</p>
-<p class="p1"><span class="Apple-converted-space">    </span>var lbl=diff&gt;100?'+'+diff+' kcal':diff&gt;=-150?'In target':diff+' kcal';</p>
-<p class="p1"><span class="Apple-converted-space">    </span>var bc=diff&gt;100?'var(--red)':diff&gt;=-150?'linear-gradient(var(--green),#24d88e)':'var(--amber)';</p>
-<p class="p1"><span class="Apple-converted-space">    </span>var ti=h.type==='allenamento'?'&lt;i data-lucide="dumbbell"&gt;&lt;/i&gt;':'&lt;i data-lucide="moon"&gt;&lt;/i&gt;';</p>
-<p class="p1"><span class="Apple-converted-space">    </span>return '&lt;div class="hcard" onclick="jumpToDate(\''+h.date+'\')"&gt;'</p>
-<p class="p1"><span class="Apple-converted-space">      </span>+'&lt;div class="hbar" style="background:'+bc+'"&gt;&lt;/div&gt;'</p>
-<p class="p1"><span class="Apple-converted-space">      </span>+'&lt;div class="hinf"&gt;&lt;div class="hdate"&gt;'+fmtS(h.date)+'&lt;/div&gt;&lt;div class="htype"&gt;'+ti+' '+h.type+'&lt;/div&gt;&lt;/div&gt;'</p>
-<p class="p1"><span class="Apple-converted-space">      </span>+'&lt;div class="hright"&gt;&lt;div class="hkc"&gt;'+h.kcal.toLocaleString('it-IT')+'&lt;/div&gt;'</p>
-<p class="p1"><span class="Apple-converted-space">      </span>+'&lt;div class="hpr"&gt;'+h.prot+'g prot&lt;/div&gt;'</p>
-<p class="p1"><span class="Apple-converted-space">      </span>+'&lt;span class="badge '+cls+'"&gt;'+lbl+'&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}).join('');</p>
-<p class="p1"><span class="Apple-converted-space">  </span>lucide.createIcons();</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">function renderPeso(){</p>
-<p class="p1"><span class="Apple-converted-space">  </span>var sw=prof.weight,tw=prof.tw;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>var cur=wts.length?wts[0].weight:sw;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>var lost=(sw-cur).toFixed(1);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>var miss=(cur-tw).toFixed(1);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById('wgrid').innerHTML=[</p>
-<p class="p1"><span class="Apple-converted-space">    </span>{l:'Peso attuale',v:cur.toFixed(1).replace('.',',')+' kg',ic:'scale',cls:''},</p>
-<p class="p1"><span class="Apple-converted-space">    </span>{l:'Perso',v:lost&gt;0?'\u2212'+Math.abs(lost)+' kg':'\u2014',ic:'trending-down',cls:'g'},</p>
-<p class="p1"><span class="Apple-converted-space">    </span>{l:'Obiettivo',v:tw+' kg',ic:'target',cls:''},</p>
-<p class="p1"><span class="Apple-converted-space">    </span>{l:'Mancano',v:miss&gt;0?miss+' kg':'\uD83C\uDF89',ic:'flag',cls:''}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>].map(function(r){</p>
-<p class="p1"><span class="Apple-converted-space">    </span>return '&lt;div class="wcard"&gt;&lt;div class="wlbl"&gt;&lt;i data-lucide="'+r.ic+'"&gt;&lt;/i&gt;'+r.l+'&lt;/div&gt;&lt;div class="wval '+r.cls+'"&gt;'+r.v+'&lt;/div&gt;&lt;/div&gt;';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}).join('');</p>
-<p class="p1"><span class="Apple-converted-space">  </span>var wl=document.getElementById('wloglist');</p>
-<p class="p1"><span class="Apple-converted-space">  </span>if(!wts.length){wl.innerHTML='&lt;div class="empty"&gt;&lt;div class="eico"&gt;&lt;i data-lucide="scale"&gt;&lt;/i&gt;&lt;/div&gt;&lt;div class="etxt"&gt;Nessuna pesata ancora.&lt;br&gt;Aggiungila qui sopra.&lt;/div&gt;&lt;/div&gt;';lucide.createIcons();return;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>wl.innerHTML=wts.map(function(w,i){</p>
-<p class="p1"><span class="Apple-converted-space">    </span>var ref=i&lt;wts.length-1?wts[i+1].weight:sw;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>var diff=(w.weight-ref).toFixed(1);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>var cls=diff&lt;0?'dn':diff&gt;0?'up':'';</p>
-<p class="p1"><span class="Apple-converted-space">    </span>var dt=diff&lt;0?diff+' kg':diff&gt;0?'+'+diff+' kg':'\u2014';</p>
-<p class="p1"><span class="Apple-converted-space">    </span>return '&lt;div class="wlog"&gt;&lt;div class="wldate"&gt;'+fmtS(w.date)+'&lt;/div&gt;&lt;div class="wlval"&gt;'+w.weight.toFixed(1).replace('.',',')+' kg&lt;/div&gt;&lt;div class="wldiff '+cls+'"&gt;'+dt+'&lt;/div&gt;&lt;/div&gt;';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}).join('');</p>
-<p class="p1"><span class="Apple-converted-space">  </span>lucide.createIcons();</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">function saveW(){</p>
-<p class="p1"><span class="Apple-converted-space">  </span>var v=parseFloat(document.getElementById('win').value);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>if(!v||v&lt;30||v&gt;300){toast('Valore non valido');return;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>wts.unshift({date:dk(),weight:v});if(wts.length&gt;90)wts.splice(90);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>localStorage.setItem(ukey('wts'),JSON.stringify(wts));</p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById('win').value='';renderPeso();toast('Pesata salvata \u2713');</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">function renderProfilo(){</p>
-<p class="p1"><span class="Apple-converted-space">  </span>var pal=PAL[prof.ci||0];</p>
-<p class="p1"><span class="Apple-converted-space">  </span>var av=document.getElementById('pav');</p>
-<p class="p1"><span class="Apple-converted-space">  </span>av.textContent=prof.name.charAt(0).toUpperCase();</p>
-<p class="p1"><span class="Apple-converted-space">  </span>av.style.background=pal.bg;av.style.color='#fff';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById('pnm').textContent=prof.name;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById('psub').textContent=prof.weight+'kg \u2192 '+prof.tw+'kg \u00B7 '+prof.wk+' all./sett.';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById('pstats').innerHTML=[</p>
-<p class="p1"><span class="Apple-converted-space">    </span>{v:prof.tdee.toLocaleString('it-IT'),l:'TDEE'},</p>
-<p class="p1"><span class="Apple-converted-space">    </span>{v:prof.tTrain.toLocaleString('it-IT'),l:'Allena'},</p>
-<p class="p1"><span class="Apple-converted-space">    </span>{v:prof.tProt+'g',l:'Proteine'}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>].map(function(r){return '&lt;div class="pst"&gt;&lt;div class="pstv"&gt;'+r.v+'&lt;/div&gt;&lt;div class="pstl"&gt;'+r.l+'&lt;/div&gt;&lt;/div&gt;';}).join('');</p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById('setcard').innerHTML=[</p>
-<p class="p1"><span class="Apple-converted-space">    </span>{ic:'activity',l:'BMR',v:prof.bmr+' kcal',cls:''},</p>
-<p class="p1"><span class="Apple-converted-space">    </span>{ic:'zap',l:'TDEE',v:prof.tdee+' kcal',cls:'b'},</p>
-<p class="p1"><span class="Apple-converted-space">    </span>{ic:'dumbbell',l:'Target allenamento',v:prof.tTrain+' kcal',cls:'b'},</p>
-<p class="p1"><span class="Apple-converted-space">    </span>{ic:'moon',l:'Target riposo',v:prof.tRest+' kcal',cls:'a'},</p>
-<p class="p1"><span class="Apple-converted-space">    </span>{ic:'beef',l:'Proteine / die',v:prof.tProt+' g',cls:'g'},</p>
-<p class="p1"><span class="Apple-converted-space">    </span>{ic:'ruler',l:'Altezza',v:prof.height+' cm',cls:''},</p>
-<p class="p1"><span class="Apple-converted-space">    </span>{ic:'user',l:'Et\u00E0 / Sesso',v:prof.age+' anni \u00B7 '+prof.sex,cls:''},</p>
-<p class="p1"><span class="Apple-converted-space">  </span>].map(function(r){</p>
-<p class="p1"><span class="Apple-converted-space">    </span>return '&lt;div class="setrow"&gt;&lt;span class="setl"&gt;&lt;i data-lucide="'+r.ic+'"&gt;&lt;/i&gt;'+r.l+'&lt;/span&gt;&lt;span class="setv '+r.cls+'"&gt;'+r.v+'&lt;/span&gt;&lt;/div&gt;';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}).join('');</p>
-<p class="p1"><span class="Apple-converted-space">  </span>lucide.createIcons();</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">function switchUser(){uid=null;prof=null;localStorage.removeItem('ct_cur');initWelcome();}</p>
-<p class="p1">function delProf(){</p>
-<p class="p1"><span class="Apple-converted-space">  </span>if(!confirm('Eliminare il profilo di '+prof.name+'?'))return;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>var users=getUsers().filter(function(u){return u!==uid;});saveUsers(users);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>['today','hist','wts'].forEach(function(k){localStorage.removeItem(ukey(k));});</p>
-<p class="p1"><span class="Apple-converted-space">  </span>localStorage.removeItem('ct_p_'+uid);localStorage.removeItem('ct_cur');</p>
-<p class="p1"><span class="Apple-converted-space">  </span>uid=null;prof=null;initWelcome();</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">document.getElementById('aiin').addEventListener('keydown',function(e){if(e.key==='Enter'&amp;&amp;!e.shiftKey){e.preventDefault();analyze();}});</p>
-<p class="p2"><br></p>
-<p class="p1">(function boot(){</p>
-<p class="p1"><span class="Apple-converted-space">  </span>lucide.createIcons();</p>
-<p class="p1"><span class="Apple-converted-space">  </span>var saved=localStorage.getItem('ct_cur');</p>
-<p class="p1"><span class="Apple-converted-space">  </span>if(saved){</p>
-<p class="p1"><span class="Apple-converted-space">    </span>var p=loadProf(saved);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>if(p&amp;&amp;!p.pwdHash){uid=saved;prof=p;loadUD();show('sa');renderApp();return;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>initWelcome();</p>
-<p class="p1">})();</p>
-<p class="p1">&lt;/script&gt;</p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
-<p class="p2"><br></p>
-<p class="p2"><br></p>
-<p class="p1">### Come caricarlo online su GitHub Pages in 3 semplici passaggi:</p>
-<p class="p2"><br></p>
-<p class="p1">1. Accedi a GitHub ed entra nel tuo repository `LorenzoCorona12/calorie-tracker` (che si vede nello screenshot).</p>
-<p class="p1">2. Fai clic sul file `index.html` esistente, premi l'icona della **matita** in alto a destra per modificarlo (oppure fai l'upload diretto sostituendo il file).</p>
-<p class="p1">3. Cancella tutto il vecchio codice all'interno di `index.html`, incolla questo nuovo codice che ti ho generato qui sopra e fai il **Commit** salvando le modifiche.</p>
-<p class="p2"><br></p>
-<p class="p1">Nel giro di pochissimi secondi, l'azione automatica di GitHub (il pallino verde dei *deployments* che vedi in basso a destra nello screenshot) ricompilerà il sito e le nuove funzioni saranno visibili online all'indirizzo del tuo sito web in tempo reale!</p>
+<div class="scr off" id="sw">
+  <div class="wscroll">
+    <div class="logo"><i data-lucide="flame"></i></div>
+    <h1 class="wh1">Il tuo tracker<br><em>intelligente</em></h1>
+    <p class="wsub">Scomponi e traccia quello che mangi.<br>Ricalcola in tempo reale le porzioni.</p>
+    <div class="ulist" id="ulist"></div>
+    <div class="orline" id="orline" style="display:none">oppure</div>
+  </div>
+  <div class="wfoot">
+    <button class="btn btn-p" onclick="goSetup()"><i data-lucide="plus"></i> Crea nuovo profilo</button>
+  </div>
+</div>
+<div class="scr off" id="ss">
+  <div class="sscroll">
+    <div class="snav">
+      <button class="sbk" onclick="setupBack()"><i data-lucide="arrow-left"></i></button>
+      <div class="sbar" id="sbar"></div>
+    </div>
+    <div class="spane on" id="sp1">
+      <div class="sico"><i data-lucide="user"></i></div>
+      <div class="stit">Come ti chiami?</div>
+      <div class="ssub">Ogni profilo è separato e protetto da password personale.</div>
+      <div class="field"><label>Il tuo nome</label><input id="fname" type="text" placeholder="Es. Lorenzo" autocapitalize="words"/></div>
+    </div>
+    <div class="spane" id="sp2">
+      <div class="sico"><i data-lucide="ruler"></i></div>
+      <div class="stit">I tuoi dati fisici</div>
+      <div class="ssub">Per calcolare il fabbisogno calorico con la formula Mifflin-St Jeor.</div>
+      <div class="field-row">
+        <div class="field"><label>Età</label><input id="fage" type="number" placeholder="34" min="14" max="90"/></div>
+        <div class="field"><label>Sesso (M/F)</label><input id="fsex" type="text" placeholder="M" maxlength="1"/></div>
+      </div>
+      <div class="field-row">
+        <div class="field"><label>Altezza (cm)</label><input id="fh" type="number" placeholder="175"/></div>
+        <div class="field"><label>Peso attuale (kg)</label><input id="fw" type="number" placeholder="78" step="0.1"/></div>
+      </div>
+    </div>
+    <div class="spane" id="sp3">
+      <div class="sico"><i data-lucide="dumbbell"></i></div>
+      <div class="stit">Allenamenti settimanali</div>
+      <div class="ssub">Quante volte ti alleni a settimana? Serve per calcolare il moltiplicatore TDEE.</div>
+      <div class="ogrid" id="ogrid">
+        <button class="opt" onclick="selW(0)"><span class="optn">0</span>Mai</button>
+        <button class="opt" onclick="selW(1)"><span class="optn">1</span>Volta</button>
+        <button class="opt" onclick="selW(2)"><span class="optn">2</span>Volte</button>
+        <button class="opt" onclick="selW(3)"><span class="optn">3</span>Volte</button>
+        <button class="opt" onclick="selW(4)"><span class="optn">4</span>Volte</button>
+        <button class="opt" onclick="selW(5)"><span class="optn">5</span>Volte</button>
+        <button class="opt" onclick="selW(6)"><span class="optn">6</span>Volte</button>
+        <button class="opt" onclick="selW(7)"><span class="optn">7</span>Ogni g.</button>
+      </div>
+    </div>
+    <div class="spane" id="sp4">
+      <div class="sico"><i data-lucide="target"></i></div>
+      <div class="stit">Obiettivo e sicurezza</div>
+      <div class="ssub">Imposta il peso ideale e una password per proteggere il tuo profilo.</div>
+      <div class="field-row">
+        <div class="field"><label>Peso obiettivo (kg)</label><input id="ftw" type="number" placeholder="72" step="0.1"/></div>
+        <div class="field"><label>Proteine/die (g)</label><input id="fpt" type="number" placeholder="Auto"/></div>
+      </div>
+      <div class="field">
+        <label>Password profilo</label>
+        <div class="prow" id="spr">
+          <input id="fpwd" type="password" placeholder="Scegli una password"/>
+          <button class="peye" onclick="toggleEye('fpwd','seye')" id="seye" type="button"><i data-lucide="eye"></i></button>
+        </div>
+      </div>
+    </div>
+    <div class="spane" id="sp5">
+      <div class="sico"><i data-lucide="check-circle"></i></div>
+      <div class="stit">Tutto pronto!</div>
+      <div class="ssub">Ecco i tuoi target calcolati. Modificabili in qualsiasi momento.</div>
+      <div class="scard" id="scard"></div>
+    </div>
+  </div>
+  <div class="sfoot">
+    <button class="btn btn-p" id="nbtn" onclick="setupNext()">Continua <i data-lucide="arrow-right"></i></button>
+  </div>
+</div>
+<div class="scr off" id="sa">
+  <div class="ascroll" id="ascroll">
+
+    <div class="tab on" id="ttoday">
+      <div class="thero">
+        <div class="theader-row">
+          <div><div class="tgreet" id="tgreet">Ciao!</div><div class="tdate" id="tdate"></div></div>
+          <button class="dpill dpt" id="dpill" onclick="toggleDay()">Allenamento</button>
+        </div>
+        
+        <!-- Apple Date Navigator Row -->
+        <div class="dnav-bar">
+          <button class="dnav-btn" onclick="changeActiveDate(-1)"><i data-lucide="chevron-left"></i></button>
+          <div class="dnav-label" id="dnav-label-text">
+            <span>Oggi</span>
+            <i data-lucide="calendar" style="width:13px;height:13px;color:var(--blue)"></i>
+            <input type="date" class="dnav-picker" id="dnav-picker-input" onchange="jumpToDate(this.value)">
+          </div>
+          <button class="dnav-btn" onclick="changeActiveDate(1)"><i data-lucide="chevron-right"></i></button>
+        </div>
+      </div>
+      
+      <div class="ringcard">
+        <div class="rwrap">
+          <svg width="120" height="120" viewBox="0 0 120 120">
+            <circle class="rbg" cx="60" cy="60" r="50"/>
+            <circle class="rglow" id="rglow" cx="60" cy="60" r="50" stroke-dasharray="314.16" stroke-dashoffset="314.16" stroke="url(#g1)"/>
+            <circle class="rfill" id="rfill" cx="60" cy="60" r="50" stroke-dasharray="314.16" stroke-dashoffset="314.16" stroke="url(#g1)"/>
+            <defs>
+              <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#007AFF"/>
+                <stop offset="100%" stop-color="#5856D6"/>
+              </linearGradient>
+              <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#FF3B30"/>
+                <stop offset="100%" stop-color="#FF2D55"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <div class="rmid">
+            <div class="rnum" id="rnum">0</div>
+            <div class="rlbl">kcal</div>
+          </div>
+        </div>
+        <div class="raside">
+          <div class="rs">
+            <div class="rslbl">Rimanenti</div>
+            <div class="rsval" style="font-size:16px" id="rrem">&#8212;</div>
+            <div class="rssub" id="rtgt">su &#8212; kcal</div>
+          </div>
+          <div class="rs">
+            <div class="rslbl">Proteine</div>
+            <div style="font-size:12px;font-weight:700;color:var(--t1)" id="rptxt">0g / &#8212;g</div>
+            <div class="rsbar"><div class="rsfill" id="barp" style="width:0%;background:linear-gradient(90deg,var(--green),#24d88e)"></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="dtog">
+        <button class="dtb at" id="bttr" onclick="setDay('allenamento')">
+          <i data-lucide="dumbbell"></i><span id="ltr">Allenamento</span>
+        </button>
+        <button class="dtb" id="btrs" onclick="setDay('riposo')">
+          <i data-lucide="moon"></i><span id="lrs">Riposo</span>
+        </button>
+      </div>
+      <div class="sbar2" id="sbar2"></div>
+      <div class="aibox">
+        <div class="aihdr">
+          <div class="aispot"><i data-lucide="sparkles"></i></div>
+          <span class="aitag">Gemini AI</span>
+        </div>
+        <textarea class="aita" id="aiin" placeholder="Cosa hai mangiato? Es: 120g di riso con 150g di filetto di salmone e un filo d'olio d'oliva" rows="2"></textarea>
+        <div class="aiload" id="aiload"><div class="spin"></div>Gemini sta analizzando...</div>
+        <div class="aifoot">
+          <button class="aibtn" id="bmic" onclick="toggleMic()">
+            <i data-lucide="mic" id="micic"></i><span id="miclbl">Detta</span>
+          </button>
+          <button class="aibtn send" id="bgo" onclick="analyze()">
+            <i data-lucide="send"></i>Analizza
+          </button>
+        </div>
+      </div>
+
+      <div class="sechdr"><div class="sect">Pasti registrati</div></div>
+      <div id="mlist"></div>
+    </div>
+
+    <div class="tab" id="tdiario">
+      <div class="ph"><div class="pht">Diario</div><div class="phs">Il tuo storico alimentare</div></div>
+      <div id="histlist"></div>
+    </div>
+
+    <div class="tab" id="tpeso">
+      <div class="ph"><div class="pht">Progresso</div><div class="phs">Traccia il tuo peso</div></div>
+      <div class="wgrid" id="wgrid"></div>
+      <div class="winrow">
+        <input type="number" id="win" placeholder="Peso oggi (kg)" step="0.1" min="30" max="300"/>
+        <button onclick="saveW()">+ Salva</button>
+      </div>
+      <div class="sechdr"><div class="sect">Log pesate</div></div>
+      <div id="wloglist"></div>
+    </div>
+
+    <div class="tab" id="tprofilo">
+      <div class="ph"><div class="pht">Profilo</div><div class="phs">Le tue impostazioni</div></div>
+      <div class="phero">
+        <div class="ptop">
+          <div class="pav" id="pav"></div>
+          <div><div class="pnm" id="pnm"></div><div class="psub" id="psub"></div></div>
+        </div>
+        <div class="pstats" id="pstats"></div>
+      </div>
+      <div class="setcard" id="setcard"></div>
+      <div class="gap8 mt12">
+        <button class="btn btn-g" onclick="switchUser()"><i data-lucide="log-out"></i>Cambia utente</button>
+        <button class="btn btn-r" onclick="delProf()"><i data-lucide="trash-2"></i>Elimina profilo e dati</button>
+      </div>
+    </div>
+
+  </div>
+  <nav class="bnav">
+    <button class="nb on" id="ntoday" onclick="showTab('today')">
+      <i data-lucide="clock"></i><span>Oggi</span>
+    </button>
+    <button class="nb" id="ndiario" onclick="showTab('diario')">
+      <i data-lucide="book-open"></i><span>Diario</span>
+    </button>
+    <button class="nb" id="npeso" onclick="showTab('peso')">
+      <i data-lucide="trending-down"></i><span>Peso</span>
+    </button>
+    <button class="nb" id="nprofilo" onclick="showTab('profilo')">
+      <i data-lucide="user-circle"></i><span>Profilo</span>
+    </button>
+  </nav>
+</div>
+
+<!-- INTERACTIVE REVISION MODAL / APPLE-STYLE BOTTOM SHEET -->
+<div class="modal-overlay" id="ai-review-modal">
+  <div class="bsheet" id="ai-review-sheet">
+    <div class="bshdrag"></div>
+    <div class="bshdr">
+      <span class="bstitle">Revisione Alimenti IA</span>
+      <button class="bsclose" onclick="closeReviewModal()"><i data-lucide="x" style="width:14px;height:14px"></i></button>
+    </div>
+    <div class="bsbody" id="review-modal-body">
+      <!-- Generated dynamically -->
+    </div>
+    <div class="px-5 py-2">
+      <button class="bsadd" onclick="addNewItemToReview()"><i data-lucide="plus" style="width:14px;height:14px"></i> Aggiungi un altro alimento</button>
+    </div>
+    <div class="bsfoot">
+      <div class="bstot-row">
+        <span>Totale stimato</span>
+        <span id="review-summary-totals">0g prot &middot; 0 kcal</span>
+      </div>
+      <div class="bsbtn-row">
+        <button class="btn btn-g" style="flex:1" onclick="closeReviewModal()"><i data-lucide="x"></i> Annulla</button>
+        <button class="btn btn-p" style="flex:1" onclick="commitReviewToDiary()"><i data-lucide="check"></i> Salva nel Diario</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+<script>
+var GK='AIzaSyAfiXjHgd9m6w1ErGeWko6XNKhzGq2myS0';
+var GU='https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent?key='+GK;
+var PAL=[
+  {bg:'linear-gradient(135deg,#007AFF,#5856D6)',lc:'#EEF2FF'},
+  {bg:'linear-gradient(135deg,#34C759,#24d88e)',lc:'#ECFDF5'},
+  {bg:'linear-gradient(135deg,#FF9500,#E04818)',lc:'#FFF7ED'},
+  {bg:'linear-gradient(135deg,#FFCC00,#C47A00)',lc:'#FFFBEB'},
+  {bg:'linear-gradient(135deg,#AF52DE,#6D28D9)',lc:'#F5F3FF'},
+  {bg:'linear-gradient(135deg,#FF3B30,#C72020)',lc:'#FEF2F2'}
+];
+var MEAL_ICONS=['\uD83C\uDF57','\uD83E\uDD69','\uD83D\uDC1F','\uD83E\uDD57','\uD83C\uDF5D','\uD83E\uDD5B','\u2615','\uD83C\uDF73','\uD83E\uDD66','\uD83C\uDF5A','\uD83C\uDF5E','\uD83C\uDF4E'];
+
+var uid=null,prof=null;
+var activeDate = getTodayDateStr(); // Data attualmente selezionata nel navigatore (YYYY-MM-DD)
+var today={type:'allenamento',meals:[]};
+var hist=[],wts=[],pend=[];
+var wkts=3,step=1,STEPS=5;
+var recog=null,recording=false;
+
+function getTodayDateStr() {
+  return new Date().toISOString().slice(0,10);
+}
+
+function dk(){
+  return activeDate; // Ritorna sempre la data attiva selezionata
+}
+
+function fmtS(iso){
+  return new Date(iso+'T12:00:00').toLocaleDateString('it-IT',{weekday:'short',day:'numeric',month:'short'});
+}
+
+function fmtL(iso){
+  return new Date(iso+'T12:00:00').toLocaleDateString('it-IT',{weekday:'long',day:'numeric',month:'long'});
+}
+
+function toast(m){
+  var t=document.getElementById('toast');
+  t.textContent=m;
+  t.classList.add('on');
+  setTimeout(function(){t.classList.remove('on');},3200);
+}
+
+function show(id){
+  ['sw','ss','sa'].forEach(function(s){document.getElementById(s).classList.add('off');});
+  document.getElementById(id).classList.remove('off');
+  setTimeout(function(){lucide.createIcons();},50);
+}
+
+async function hashPwd(p){
+  if(!p)return '';
+  var d=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(p));
+  return Array.from(new Uint8Array(d)).map(function(b){return b.toString(16).padStart(2,'0');}).join('');
+}
+
+function toggleEye(iid,bid){
+  var inp=document.getElementById(iid),btn=document.getElementById(bid);
+  var show=inp.type==='password';
+  inp.type=show?'text':'password';
+  btn.innerHTML='<i data-lucide="'+(show?'eye-off':'eye')+'"></i>';
+  lucide.createIcons();
+}
+
+function getUsers(){try{return JSON.parse(localStorage.getItem('ct_u')||'[]');}catch(e){return[];}}
+function saveUsers(u){localStorage.setItem('ct_u',JSON.stringify(u));}
+function loadProf(u){try{return JSON.parse(localStorage.getItem('ct_p_'+u)||'null');}catch(e){return null;}}
+function ukey(k){return 'ct_'+uid+'_'+k;}
+
+function initWelcome(){
+  var users=getUsers().filter(function(u){return !!loadProf(u);});
+  var ul=document.getElementById('ulist');
+  document.getElementById('orline').style.display=users.length?'flex':'none';
+  if(!users.length){ul.innerHTML='';show('sw');return;}
+  ul.innerHTML=users.map(function(u){
+    var p=loadProf(u);
+    var pal=PAL[p.ci||0];
+    return '<div class="ucard">'
+      +'<div class="utop" onclick="toggleLogin(\''+u+'\')">'
+      +'<div class="uav" style="background:'+pal.bg+';color:#fff">'+p.name.charAt(0).toUpperCase()+'</div>'
+      +'<div style="flex:1"><div class="unm">'+p.name+'</div>'
+      +'<div class="umt">'+p.weight+'kg &rarr; '+p.tw+'kg &middot; TDEE '+p.tdee+' kcal</div></div>'
+      +'<div class="uarr" id="arr_'+u+'"><i data-lucide="chevron-right"></i></div>'
+      +'</div>'
+      +'<div class="ulogin" id="ulog_'+u+'">'
+      +'<div class="ulogin-in">'
+      +'<div class="prow" style="margin-top:4px">'
+      +'<input type="password" id="pwd_'+u+'" placeholder="Password" onkeydown="if(event.key===\'Enter\')doLogin(\''+u+'\')">'
+      +'<button class="peye" onclick="toggleEye(\'pwd_'+u+'\',\'eye_'+u+'\')" id="eye_'+u+'" type="button"><i data-lucide="eye"></i></button>'
+      +'</div>'
+      +'<button class="btnlogin" onclick="doLogin(\''+u+'\')">Accedi con password</button>'
+      +'<div class="lerr" id="err_'+u+'">Password errata. Riprova.</div>'
+      +'</div></div></div>';
+  }).join('');
+  show('sw');
+}
+
+function toggleLogin(u){
+  var panel=document.getElementById('ulog_'+u);
+  var arr=document.getElementById('arr_'+u);
+  var isOpen=panel.classList.contains('open');
+  document.querySelectorAll('.ulogin').forEach(function(p){p.classList.remove('open');});
+  document.querySelectorAll('.uarr').forEach(function(a){a.classList.remove('open');});
+  if(!isOpen){
+    panel.classList.add('open');arr.classList.add('open');
+    setTimeout(function(){var i=document.getElementById('pwd_'+u);if(i)i.focus();},350);
+  }
+  lucide.createIcons();
+}
+
+async function doLogin(u){
+  var p=loadProf(u);if(!p)return;
+  var inp=document.getElementById('pwd_'+u);
+  var err=document.getElementById('err_'+u);
+  if(p.pwdHash){
+    var h=await hashPwd(inp?inp.value:'');
+    if(h!==p.pwdHash){
+      err.classList.add('on');inp.value='';inp.focus();
+      setTimeout(function(){err.classList.remove('on');},2600);return;
+    }
+  }
+  uid=u;prof=p;localStorage.setItem('ct_cur',u);
+  activeDate = getTodayDateStr(); // Inizializza sulla data di oggi
+  loadUD();show('sa');renderApp();
+}
+
+function goSetup(){
+  step=1;wkts=3;
+  ['fname','fage','fsex','fh','fw','ftw','fpt','fpwd'].forEach(function(id){var e=document.getElementById(id);if(e)e.value='';});
+  document.querySelectorAll('#ogrid .opt').forEach(function(b,i){b.classList.toggle('on',i===3);});
+  updDots();goStepEl(1);show('ss');
+}
+
+function updDots(){
+  var bar=document.getElementById('sbar');bar.innerHTML='';
+  for(var i=1;i<=STEPS;i++){
+    var d=document.createElement('div');
+    d.className='sd'+(i<step?' done':i===step?' on':'');
+    bar.appendChild(d);
+  }
+}
+
+function goStepEl(n){
+  document.querySelectorAll('.spane').forEach(function(p){p.classList.remove('on');});
+  document.getElementById('sp'+n).classList.add('on');
+  var nb=document.getElementById('nbtn');
+  nb.innerHTML=(n===STEPS?'Crea profilo ':'Continua ')+'<i data-lucide="'+(n===STEPS?'check':'arrow-right')+'"></i>';
+  lucide.createIcons();
+}
+
+function goStep(n){step=n;updDots();goStepEl(n);}
+function setupBack(){if(step===1){initWelcome();return;}goStep(step-1);}
+
+function setupNext(){
+  if(step===1){
+    if(!document.getElementById('fname').value.trim()){toast('Inserisci il tuo nome');return;}
+    goStep(2);
+  }else if(step===2){
+    var age=parseInt(document.getElementById('fage').value);
+    var sex=document.getElementById('fsex').value.trim().toUpperCase();
+    var h=parseFloat(document.getElementById('fh').value);
+    var w=parseFloat(document.getElementById('fw').value);
+    if(!age||!sex||!h||!w){toast('Compila tutti i campi');return;}
+    if(sex!=='M'&&sex!=='F'){toast('Sesso: M oppure F');return;}
+    goStep(3);
+  }else if(step===3){
+    goStep(4);
+  }else if(step===4){
+    if(!document.getElementById('ftw').value){toast('Inserisci il peso obiettivo');return;}
+    buildSummary();goStep(5);
+  }else{doCreate();}
+}
+
+function selW(n){
+  wkts=n;
+  document.querySelectorAll('#ogrid .opt').forEach(function(b,i){b.classList.toggle('on',i===n);});
+}
+
+function calcTDEE(p){
+  var m=p.sex==='F';
+  var bmr=m?(10*p.weight+6.25*p.height-5*p.age-161):(10*p.weight+6.25*p.height-5*p.age+5);
+  var mults=[1.2,1.375,1.375,1.55,1.55,1.725,1.725,1.9];
+  var tdee=Math.round(bmr*mults[Math.min(p.wk,7)]);
+  return{bmr:Math.round(bmr),tdee:tdee,tTrain:Math.max(Math.round(tdee-400),1200),tRest:Math.max(Math.round(tdee-800),1000),tProt:p.protT||Math.round(p.weight*1.8)};
+}
+
+function readFields(){
+  return{name:document.getElementById('fname').value.trim(),age:parseInt(document.getElementById('fage').value),sex:document.getElementById('fsex').value.trim().toUpperCase(),height:parseFloat(document.getElementById('fh').value),weight:parseFloat(document.getElementById('fw').value),wk:wkts,tw:parseFloat(document.getElementById('ftw').value),protT:parseInt(document.getElementById('fpt').value)||0};
+}
+
+function buildSummary(){
+  var p=readFields(),c=calcTDEE(p);
+  document.getElementById('scard').innerHTML=[
+    ['TDEE stimato',c.tdee+' kcal',''],
+    ['Target allenamento',c.tTrain+' kcal','hi'],
+    ['Target riposo',c.tRest+' kcal','hi'],
+    ['Proteine / die',c.tProt+' g',''],
+    ['BMR base',c.bmr+' kcal','']
+  ].map(function(r){return '<div class="srow"><span class="slbl">'+r[0]+'</span><span class="sval '+r[2]+'">'+r[1]+'</span></div>';}).join('');
+}
+
+async function doCreate(){
+  var users=getUsers(),f=readFields(),c=calcTDEE(f);
+  var ph=await hashPwd(document.getElementById('fpwd').value);
+  var id='u_'+Date.now();
+  var p={name:f.name,age:f.age,sex:f.sex,height:f.height,weight:f.weight,wk:f.wk,tw:f.tw,protT:f.protT,bmr:c.bmr,tdee:c.tdee,tTrain:c.tTrain,tRest:c.tRest,tProt:c.tProt,pwdHash:ph,ci:users.length%PAL.length,created:dk()};
+  localStorage.setItem('ct_p_'+id,JSON.stringify(p));
+  users.push(id);saveUsers(users);
+  uid=id;prof=p;localStorage.setItem('ct_cur',id);
+  activeDate = getTodayDateStr();
+  loadUD();show('sa');renderApp();
+}
+
+// --- DATE NAVIGATION AND LOADING HANDLER ---
+function changeActiveDate(delta) {
+  var d = new Date(activeDate + 'T12:00:00');
+  d.setDate(d.getDate() + delta);
+  activeDate = d.toISOString().slice(0, 10);
+  loadUD();
+  renderApp();
+}
+
+function jumpToDate(val) {
+  if(!val) return;
+  activeDate = val;
+  loadUD();
+  renderApp();
+}
+
+function loadUD(){
+  var d=dk();
+  try{
+    // Carichiamo la data dinamicamente dallo storage relativo
+    var raw=JSON.parse(localStorage.getItem(ukey('day_' + d))||'null');
+    if(raw){
+      today={type:raw.type||'allenamento',meals:raw.meals||[]};
+    } else {
+      // Se non esiste ancora record per questa specifica data passata/futura, carichiamo un set vuoto
+      today={type:'allenamento',meals:[]};
+    }
+  }catch(e){today={type:'allenamento',meals:[]};}
+  
+  try{hist=JSON.parse(localStorage.getItem(ukey('hist'))||'[]');}catch(e){hist=[];}
+  try{wts=JSON.parse(localStorage.getItem(ukey('wts'))||'[]');}catch(e){wts=[];}
+}
+
+function saveToday(){
+  var d = dk();
+  localStorage.setItem(ukey('day_' + d), JSON.stringify({date:d,type:today.type,meals:today.meals}));
+  
+  // Aggiorna lo storico del diario dinamicamente
+  var tgt=today.type==='allenamento'?prof.tTrain:prof.tRest;
+  var kcalTot = today.meals.reduce(function(a,m){return a+m.kcal;},0);
+  var protTot = Math.round(today.meals.reduce(function(a,m){return a+m.prot;},0));
+  
+  hist = hist.filter(function(h){return h.date !== d;}); // Rimuove eventuali doppioni
+  if (today.meals.length > 0) {
+    hist.unshift({date:d, type:today.type, kcal:kcalTot, prot:protTot, target:tgt});
+  }
+  hist.sort(function(a,b){return b.date.localeCompare(a.date);});
+  if(hist.length>90)hist.splice(90);
+  localStorage.setItem(ukey('hist'),JSON.stringify(hist));
+}
+
+function showTab(id){
+  document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('on');});
+  document.querySelectorAll('.nb').forEach(function(b){b.classList.remove('on');});
+  document.getElementById('t'+id).classList.add('on');
+  document.getElementById('n'+id).classList.add('on');
+  document.getElementById('ascroll').scrollTop=0;
+  if(id==='diario')renderHist();
+  if(id==='peso')renderPeso();
+  if(id==='profilo')renderProfilo();
+}
+
+function renderApp(){
+  var d=new Date(),h=d.getHours();
+  var g=h<5?'Buonanotte':h<12?'Buongiorno':h<18?'Buon pomeriggio':'Buonasera';
+  var em=h<12?' \u2600\uFE0F':h<18?' \uD83D\uDC4B':' \uD83C\uDF19';
+  document.getElementById('tgreet').textContent=g+', '+prof.name.split(' ')[0]+em;
+  
+  // Aggiorniamo le labels della data
+  var dToday = getTodayDateStr();
+  var lblText = (activeDate === dToday) ? 'Oggi' : fmtS(activeDate);
+  document.getElementById('dnav-label-text').firstElementChild.textContent = lblText;
+  document.getElementById('dnav-picker-input').value = activeDate;
+  document.getElementById('tdate').textContent=fmtL(activeDate);
+  
+  setDay(today.type);
+}
+
+function setDay(type){
+  today.type=type;
+  var isTr=type==='allenamento';
+  document.getElementById('bttr').className='dtb'+(isTr?' at':'');
+  document.getElementById('btrs').className='dtb'+(isTr?'':' ar');
+  document.getElementById('dpill').className='dpill '+(isTr?'dpt':'dpr');
+  document.getElementById('dpill').textContent=isTr?'Allenamento':'Riposo';
+  document.getElementById('ltr').textContent='Allena \u00B7 '+prof.tTrain.toLocaleString('it-IT');
+  document.getElementById('lrs').textContent='Riposo \u00B7 '+prof.tRest.toLocaleString('it-IT');
+  saveToday();renderToday();
+}
+
+function toggleDay(){setDay(today.type==='allenamento'?'riposo':'allenamento');}
+
+function renderToday(){
+  var tgt=today.type==='allenamento'?prof.tTrain:prof.tRest;
+  var tP=prof.tProt;
+  var totK=today.meals.reduce(function(a,m){return a+m.kcal;},0);
+  var totP=today.meals.reduce(function(a,m){return a+m.prot;},0);
+  var rem=tgt-totK;
+  var kpct=Math.min(100,totK/tgt*100);
+  var ppct=Math.min(100,Math.round(totP/tP*100));
+  var circ=314.16; // 2 * pi * r (50)
+  var off=(circ-(kpct/100*circ)).toFixed(2);
+  var ovr=kpct>=100;
+  
+  ['rfill','rglow'].forEach(function(id){
+    var el=document.getElementById(id);
+    el.setAttribute('stroke-dashoffset',off);
+    el.setAttribute('stroke',ovr?'url(#g2)':'url(#g1)');
+  });
+  
+  document.getElementById('rnum').textContent=totK.toLocaleString('it-IT');
+  document.getElementById('rrem').textContent=(rem>=0?rem.toLocaleString('it-IT'):'+'+Math.abs(rem).toLocaleString('it-IT'))+' kcal';
+  document.getElementById('rtgt').textContent='su '+tgt.toLocaleString('it-IT')+' kcal';
+  document.getElementById('rptxt').textContent=Math.round(totP)+'g / '+tP+'g';
+  document.getElementById('barp').style.width=ppct+'%';
+  
+  var sb=document.getElementById('sbar2');
+  if(today.meals.length){
+    sb.classList.add('on');
+    var pct=Math.round(kpct);
+    if(totK>tgt+100){sb.className='sbar2 on over';sb.innerHTML='<i data-lucide="alert-triangle"></i> Sopra il target di '+(totK-tgt)+' kcal';}
+    else if(totK>=tgt-150){sb.className='sbar2 on ok';sb.innerHTML='<i data-lucide="check-circle"></i> In target perfetto ('+pct+'%)';}
+    else{sb.className='sbar2 on warn';sb.innerHTML='<i data-lucide="arrow-right"></i> '+pct+'% del target \u2014 mancano '+rem+' kcal';}
+    lucide.createIcons();
+  }else{sb.classList.remove('on');}
+  
+  var ml=document.getElementById('mlist');
+  if(!today.meals.length){
+    ml.innerHTML='<div class="mempty"><div class="mew"><i data-lucide="utensils"></i></div><div class="metxt">Descrivi i tuoi pasti qui sopra.<br>Gemini AI calcoler\u00E0 automaticamente<br>le calorie e le proteine.</div></div>';
+    lucide.createIcons();return;
+  }
+  
+  ml.innerHTML=today.meals.map(function(m,i){
+    return '<div class="mcard"><div class="mrow">'
+      +'<div class="mic2">'+MEAL_ICONS[i%MEAL_ICONS.length]+'</div>'
+      +'<div class="minf"><div class="mnm">'+m.name+'</div>'
+      +'<div class="mmt">'+(m.prot>0?m.prot+'g prot':'')+''+(m.source==='ai'?'<span class="mai">AI</span>':'')+'</div></div>'
+      +'<div class="mkc">'+m.kcal+'</div>'
+      +'<button class="mx" onclick="delM('+m.id+')"><i data-lucide="x"></i></button>'
+      +'</div></div>';
+  }).join('')
+  +'<div class="mtotcard"><span class="mtotl">Totale giornata</span><span class="mtotr">'+Math.round(totP)+'g prot \u00B7 '+totK.toLocaleString('it-IT')+' kcal</span></div>';
+  lucide.createIcons();
+}
+
+function delM(id){today.meals=today.meals.filter(function(m){return m.id!==id;});saveToday();renderToday();}
+
+// --- GEMINI AI ANALYSIS WITH STRUCTURED PORTION RESPONSES ---
+async function analyze(){
+  var txt=document.getElementById('aiin').value.trim();if(!txt)return;
+  document.getElementById('bgo').disabled=true;
+  document.getElementById('aiload').classList.add('on');
+  
+  var prompt='Nutrizionista italiano. L’utente descrive cosa ha mangiato.\n'
+            +'Identifica ogni alimento separandoli accuratamente.\n'
+            +'Fornisci come risposta unicamente un array JSON valido senza markdown, formattato esattamente in questo modo:\n'
+            +'{"items":[{"name":"Pasta al pomodoro","kcal":350,"prot":12,"base_kcal":350,"base_prot":12,"qty":100,"unit":"g"}]}'
+            +'Nota: "qty" deve contenere la grammatura o quantita\' stimata dal testo. "base_kcal" e "base_prot" devono rappresentare le kcal e le proteine per la quantita\' di base (qty) estratta, cosi\' da poter ricalcolare proporzionalmente se l\'utente cambia grammatura con lo slider.';
+  
+  try{
+    var res=await fetch(GU,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({contents:[{parts:[{text:prompt + '\nInput: ' + txt}]}],generationConfig:{temperature:0.1,maxOutputTokens:800}})});
+    if(!res.ok)throw new Error('Errore HTTP '+res.status);
+    var data=await res.json();
+    var raw=(((data.candidates||[])[0]||{}).content||{});
+    raw=((raw.parts||[])[0]||{}).text||'';
+    var parsed=JSON.parse(raw.replace(/```json|```/g,'').trim());
+    if(!parsed.items||!parsed.items.length)throw new Error('Nessun alimento trovato');
+    
+    // Popola l'array degli elementi provvisori pronti per la schermata di revisione
+    pend=parsed.items.map(function(it,i){
+      var q = parseFloat(it.qty) || 100;
+      return {
+        id: Date.now()+i,
+        name: it.name,
+        qty: q,
+        unit: it.unit || 'g',
+        base_kcal: parseFloat(it.base_kcal) || parseFloat(it.kcal) || 100,
+        base_prot: parseFloat(it.base_prot) || parseFloat(it.prot) || 0,
+        base_qty: q,
+        kcal: parseFloat(it.kcal) || 100,
+        prot: parseFloat(it.prot) || 0,
+        source: 'ai'
+      };
+    });
+    
+    openReviewModal();
+  }catch(e){toast('Errore: '+e.message);console.error(e);}
+  finally{document.getElementById('bgo').disabled=false;document.getElementById('aiload').classList.remove('on');}
+}
+
+// --- APPLE-STYLE INTERACTIVE EDIT/REVIEW SCREEN ACTIONS ---
+function openReviewModal() {
+  var overlay = document.getElementById('ai-review-modal');
+  overlay.classList.add('on');
+  renderReviewList();
+}
+
+function closeReviewModal() {
+  var overlay = document.getElementById('ai-review-modal');
+  overlay.classList.remove('on');
+  pend = [];
+}
+
+function renderReviewList() {
+  var container = document.getElementById('review-modal-body');
+  if (pend.length === 0) {
+    container.innerHTML = '<div style="text-align:center;padding:24px;font-size:13px;color:var(--t3);font-weight:600">Nessun alimento nella lista di revisione.</div>';
+    updateReviewTotals();
+    return;
+  }
+  
+  container.innerHTML = pend.map(function(it, i) {
+    return '<div class="rev-item">'
+      +'<div class="rev-top">'
+      +'<input class="rev-input-name" type="text" value="'+it.name+'" onchange="updateReviewItemName('+i+', this.value)">'
+      +'<button class="rev-del" onclick="deleteReviewItem('+i+')"><i data-lucide="trash-2" style="width:14px;height:14px"></i></button>'
+      +'</div>'
+      +'<div class="rev-row-mid">'
+      +'<span>Calorie: <strong style="color:var(--blue)">'+Math.round(it.kcal)+' kcal</strong></span> &middot; '
+      +'<span>Proteine: <strong style="color:var(--blue2)">'+Math.round(it.prot)+'g</strong></span>'
+      +'</div>'
+      +'<div class="rev-bot">'
+      +'<input class="rev-slider" type="range" min="5" max="500" step="5" value="'+it.qty+'" oninput="updateReviewItemQty('+i+', this.value)">'
+      +'<div class="rev-qty-wrap">'
+      +'<input class="rev-qty-val" type="number" min="1" max="999" value="'+it.qty+'" oninput="updateReviewItemQty('+i+', this.value)">'
+      +'<span style="color:var(--t3);margin-left:4px">'+it.unit+'</span>'
+      +'</div>'
+      +'</div>'
+      +'</div>';
+  }).join('');
+  
+  lucide.createIcons();
+  updateReviewTotals();
+}
+
+function updateReviewItemName(idx, val) {
+  if(!pend[idx]) return;
+  pend[idx].name = val.trim() || 'Alimento';
+}
+
+function updateReviewItemQty(idx, val) {
+  if(!pend[idx]) return;
+  var q = Math.max(1, parseFloat(val) || 0);
+  pend[idx].qty = q;
+  
+  // Ricalcolo proporzionale dei macro rispetto alla porzione estratta dall'IA
+  var ratio = q / pend[idx].base_qty;
+  pend[idx].kcal = Math.round(pend[idx].base_kcal * ratio);
+  pend[idx].prot = Math.round(pend[idx].base_prot * ratio * 10) / 10;
+  
+  // Ottimizzazione di aggiornamento parziale per evitare sfarfallio
+  var items = document.querySelectorAll('.rev-item');
+  if (items[idx]) {
+    var midRow = items[idx].querySelector('.rev-row-mid');
+    midRow.innerHTML = '<span>Calorie: <strong style="color:var(--blue)">'+Math.round(pend[idx].kcal)+' kcal</strong></span> &middot; '
+                     + '<span>Proteine: <strong style="color:var(--blue2)">'+Math.round(pend[idx].prot)+'g</strong></span>';
+    
+    var numInp = items[idx].querySelector('.rev-qty-val');
+    if (numInp && numInp.value != q) numInp.value = q;
+    
+    var rangeInp = items[idx].querySelector('.rev-slider');
+    if (rangeInp && rangeInp.value != q) rangeInp.value = q;
+  }
+  
+  updateReviewTotals();
+}
+
+function deleteReviewItem(idx) {
+  pend.splice(idx, 1);
+  renderReviewList();
+}
+
+function addNewItemToReview() {
+  pend.push({
+    id: Date.now() + pend.length,
+    name: "Nuovo alimento",
+    qty: 100,
+    unit: 'g',
+    base_kcal: 100,
+    base_prot: 2,
+    base_qty: 100,
+    kcal: 100,
+    prot: 2,
+    source: 'ai'
+  });
+  renderReviewList();
+}
+
+function updateReviewTotals() {
+  var totK = pend.reduce(function(a,i){return a+i.kcal;},0);
+  var totP = pend.reduce(function(a,i){return a+i.prot;},0);
+  document.getElementById('review-summary-totals').innerHTML = Math.round(totP) + 'g prot &middot; ' + totK + ' kcal';
+}
+
+function commitReviewToDiary() {
+  if (pend.length === 0) {
+    toast("Nessun alimento presente da salvare!");
+    return;
+  }
+  
+  pend.forEach(function(p) {
+    today.meals.push({
+      id: p.id,
+      name: p.name + ' (' + Math.round(p.qty) + p.unit + ')',
+      kcal: Math.round(p.kcal),
+      prot: parseFloat(p.prot) || 0,
+      source: 'ai'
+    });
+  });
+  
+  pend = [];
+  document.getElementById('ai-review-modal').classList.remove('on');
+  document.getElementById('aiin').value = '';
+  saveToday();
+  renderToday();
+  showTab('today');
+  toast("Alimenti confermati e salvati con successo! \u2713");
+}
+
+function toggleMic(){
+  var SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+  if(!SR){toast('Riconoscimento vocale non supportato');return;}
+  if(recording){recog&&recog.stop();return;}
+  recog=new SR();recog.lang='it-IT';recog.continuous=false;recog.interimResults=true;
+  recog.onstart=function(){recording=true;document.getElementById('bmic').classList.add('rcon');document.getElementById('miclbl').textContent='Stop';};
+  recog.onresult=function(e){document.getElementById('aiin').value=Array.from(e.results).map(function(r){return r[0].transcript;}).join('');};
+  recog.onend=function(){recording=false;document.getElementById('bmic').classList.remove('rcon');document.getElementById('miclbl').textContent='Detta';var v=document.getElementById('aiin').value.trim();if(v)analyze();};
+  recog.onerror=function(){recording=false;toast('Errore microfono');};
+  recog.start();
+}
+
+function renderHist(){
+  var c=document.getElementById('histlist');
+  if(!hist.length){c.innerHTML='<div class="empty"><div class="eico"><i data-lucide="calendar-x"></i></div><div class="etxt">Nessuno storico ancora.<br>Si accumula automaticamente ogni giorno.</div></div>';lucide.createIcons();return;}
+  c.innerHTML=hist.map(function(h){
+    var diff=h.kcal-h.target;
+    var cls=diff>100?'bov':diff>=-150?'bok':'bwarn';
+    var lbl=diff>100?'+'+diff+' kcal':diff>=-150?'In target':diff+' kcal';
+    var bc=diff>100?'var(--red)':diff>=-150?'linear-gradient(var(--green),#24d88e)':'var(--amber)';
+    var ti=h.type==='allenamento'?'<i data-lucide="dumbbell"></i>':'<i data-lucide="moon"></i>';
+    return '<div class="hcard" onclick="jumpToDate(\''+h.date+'\')">'
+      +'<div class="hbar" style="background:'+bc+'"></div>'
+      +'<div class="hinf"><div class="hdate">'+fmtS(h.date)+'</div><div class="htype">'+ti+' '+h.type+'</div></div>'
+      +'<div class="hright"><div class="hkc">'+h.kcal.toLocaleString('it-IT')+'</div>'
+      +'<div class="hpr">'+h.prot+'g prot</div>'
+      +'<span class="badge '+cls+'">'+lbl+'</span></div></div>';
+  }).join('');
+  lucide.createIcons();
+}
+
+function renderPeso(){
+  var sw=prof.weight,tw=prof.tw;
+  var cur=wts.length?wts[0].weight:sw;
+  var lost=(sw-cur).toFixed(1);
+  var miss=(cur-tw).toFixed(1);
+  document.getElementById('wgrid').innerHTML=[
+    {l:'Peso attuale',v:cur.toFixed(1).replace('.',',')+' kg',ic:'scale',cls:''},
+    {l:'Perso',v:lost>0?'\u2212'+Math.abs(lost)+' kg':'\u2014',ic:'trending-down',cls:'g'},
+    {l:'Obiettivo',v:tw+' kg',ic:'target',cls:''},
+    {l:'Mancano',v:miss>0?miss+' kg':'\uD83C\uDF89',ic:'flag',cls:''}
+  ].map(function(r){
+    return '<div class="wcard"><div class="wlbl"><i data-lucide="'+r.ic+'"></i>'+r.l+'</div><div class="wval '+r.cls+'">'+r.v+'</div></div>';
+  }).join('');
+  var wl=document.getElementById('wloglist');
+  if(!wts.length){wl.innerHTML='<div class="empty"><div class="eico"><i data-lucide="scale"></i></div><div class="etxt">Nessuna pesata ancora.<br>Aggiungila qui sopra.</div></div>';lucide.createIcons();return;}
+  wl.innerHTML=wts.map(function(w,i){
+    var ref=i<wts.length-1?wts[i+1].weight:sw;
+    var diff=(w.weight-ref).toFixed(1);
+    var cls=diff<0?'dn':diff>0?'up':'';
+    var dt=diff<0?diff+' kg':diff>0?'+'+diff+' kg':'\u2014';
+    return '<div class="wlog"><div class="wldate">'+fmtS(w.date)+'</div><div class="wlval">'+w.weight.toFixed(1).replace('.',',')+' kg</div><div class="wldiff '+cls+'">'+dt+'</div></div>';
+  }).join('');
+  lucide.createIcons();
+}
+
+function saveW(){
+  var v=parseFloat(document.getElementById('win').value);
+  if(!v||v<30||v>300){toast('Valore non valido');return;}
+  wts.unshift({date:dk(),weight:v});if(wts.length>90)wts.splice(90);
+  localStorage.setItem(ukey('wts'),JSON.stringify(wts));
+  document.getElementById('win').value='';renderPeso();toast('Pesata salvata \u2713');
+}
+
+function renderProfilo(){
+  var pal=PAL[prof.ci||0];
+  var av=document.getElementById('pav');
+  av.textContent=prof.name.charAt(0).toUpperCase();
+  av.style.background=pal.bg;av.style.color='#fff';
+  document.getElementById('pnm').textContent=prof.name;
+  document.getElementById('psub').textContent=prof.weight+'kg \u2192 '+prof.tw+'kg \u00B7 '+prof.wk+' all./sett.';
+  document.getElementById('pstats').innerHTML=[
+    {v:prof.tdee.toLocaleString('it-IT'),l:'TDEE'},
+    {v:prof.tTrain.toLocaleString('it-IT'),l:'Allena'},
+    {v:prof.tProt+'g',l:'Proteine'}
+  ].map(function(r){return '<div class="pst"><div class="pstv">'+r.v+'</div><div class="pstl">'+r.l+'</div></div>';}).join('');
+  document.getElementById('setcard').innerHTML=[
+    {ic:'activity',l:'BMR',v:prof.bmr+' kcal',cls:''},
+    {ic:'zap',l:'TDEE',v:prof.tdee+' kcal',cls:'b'},
+    {ic:'dumbbell',l:'Target allenamento',v:prof.tTrain+' kcal',cls:'b'},
+    {ic:'moon',l:'Target riposo',v:prof.tRest+' kcal',cls:'a'},
+    {ic:'beef',l:'Proteine / die',v:prof.tProt+' g',cls:'g'},
+    {ic:'ruler',l:'Altezza',v:prof.height+' cm',cls:''},
+    {ic:'user',l:'Et\u00E0 / Sesso',v:prof.age+' anni \u00B7 '+prof.sex,cls:''},
+  ].map(function(r){
+    return '<div class="setrow"><span class="setl"><i data-lucide="'+r.ic+'"></i>'+r.l+'</span><span class="setv '+r.cls+'">'+r.v+'</span></div>';
+  }).join('');
+  lucide.createIcons();
+}
+
+function switchUser(){uid=null;prof=null;localStorage.removeItem('ct_cur');initWelcome();}
+function delProf(){
+  if(!confirm('Eliminare il profilo di '+prof.name+'?'))return;
+  var users=getUsers().filter(function(u){return u!==uid;});saveUsers(users);
+  ['today','hist','wts'].forEach(function(k){localStorage.removeItem(ukey(k));});
+  localStorage.removeItem('ct_p_'+uid);localStorage.removeItem('ct_cur');
+  uid=null;prof=null;initWelcome();
+}
+
+document.getElementById('aiin').addEventListener('keydown',function(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();analyze();}});
+
+(function boot(){
+  lucide.createIcons();
+  var saved=localStorage.getItem('ct_cur');
+  if(saved){
+    var p=loadProf(saved);
+    if(p&&!p.pwdHash){uid=saved;prof=p;loadUD();show('sa');renderApp();return;}
+  }
+  initWelcome();
+})();
+</script>
 </body>
 </html>
+
+
+### Come caricarlo online su GitHub Pages in 3 semplici passaggi:
+
+1. Accedi a GitHub ed entra nel tuo repository `LorenzoCorona12/calorie-tracker` (che si vede nello screenshot).
+2. Fai clic sul file `index.html` esistente, premi l'icona della **matita** in alto a destra per modificarlo (oppure fai l'upload diretto sostituendo il file).
+3. Cancella tutto il vecchio codice all'interno di `index.html`, incolla questo nuovo codice che ti ho generato qui sopra e fai il **Commit** salvando le modifiche.
+
+Nel giro di pochissimi secondi, l'azione automatica di GitHub (il pallino verde dei *deployments* che vedi in basso a destra nello screenshot) ricompilerà il sito e le nuove funzioni saranno visibili online all'indirizzo del tuo sito web in tempo reale!
